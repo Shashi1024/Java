@@ -1,6 +1,6 @@
 - [✔︎] Primitive Data Types
 --- 
-- [X] Literals
+- [ ] Literals
 - [ ] Types of Variables
 - [ ] Operators
 - [ ] Control Flow Statements
