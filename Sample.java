@@ -4,7 +4,7 @@ public class Sample{
     public static void main(String [] args){
         int b;
         // public int y;
-         final int g;
+        final int g;
         // System.out.println(b);
         // System.out.println(g);
         Hello h = new Hello();
