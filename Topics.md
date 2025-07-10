@@ -1,0 +1,61 @@
+- [✔︎] Primitive Data Types
+--- 
+- [ ] Literals
+- [ ] Types of Variables
+- [ ] Operators
+- [ ] Control Flow Statements
+- [ ] Type Casting
+- [ ] Arrays
+- [ ] Strings, StringBuffer, StringBuilder
+- [ ] Access Modifiers
+- [ ] Encapsulation
+- [ ] Static
+- [ ] This
+- [ ] Super
+- [ ] Final
+- [ ] Abstraction
+- [ ] Polymorphism
+- [ ] Exception Handling
+- [ ] Packages
+- [ ] File Input/Output
+- [ ] Serialization
+- [ ] Transient keyword
+- [ ] enums
+- [ ] immutable class
+- [ ] Singleton class
+- [ ] Autoboxing and Unboxing
+- [ ] Upcasting and Downcasting
+- [ ] instanceOf operator
+- [ ] Inner Classes
+- [ ] Java Collections Framework (Lists, Sets)
+- [ ] Java Collections Framework (Map, Queue)
+- [ ] Comparable and Comparator
+- [ ] Threads
+- [ ] Thread Methods
+- [ ] Synchronized Methods
+- [ ] Thread Communication
+- [ ] Volatile keyword
+- [ ] Java8 Features (Lambda functions and functional interfaces)
+- [ ] Default Methods
+- [ ] Method references
+- [ ] Streams
+- [ ] Optional class
+- [ ] Date and Time Api
+- [ ] JDBC
+- [ ] Basic crud operations in hibernate
+- [ ] Mapping using xml
+- [ ] @Table,@Column,@Entity,@Id,@GeneratedValue,@Lob,@Transient,@Temporal
+- [ ] @OneToOne
+- [ ] @ManyToOne
+- [ ] @OneToMany
+- [ ] @ManyToMany
+- [ ] Embedding objects (@Embeddable)
+- [ ] Fetch types - eager, lazy
+- [ ] Hibernate object states
+- [ ] get, load
+- [ ] cascading
+- [ ] Caching - first level, second level
+- [ ] Hql
+- [ ] Criteria Api and its restrictions
+- [ ] Native sql queries
+- [ ] Pagination

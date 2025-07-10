@@ -1,88 +1,60 @@
-# Java Notes
-
-## Packages and Imports
-
-* You cannot import two classes with the same name from different packages simultaneously.
-    * To use two classes with the same name, you can import one and use the fully qualified name for the other (e.g., `packageName.ClassName`).
-    * If you use wildcard imports (e.g., `java.util.*` and `java.sql.*`) that both contain a class with the same name (like `Date`), the compiler will throw an error.
-
----
-
-## Initializers and Variables
-
-### Instance Initializer Blocks
-*Also known as static initializers, these blocks of code are executed when an object is created.*
-
-### Numeric Literals
-*You can include underscores (`_`) in numeric literals to improve readability (e.g., `int number = 1_000_000;`).*
-
-### Variable Types
-
-* **Local Variables**
-    * Declared inside a method.
-    * Cannot have access modifiers (public, protected, private) or be declared `static`.
-    * Only the `final` keyword is permitted.
-    * **Must be initialized** before use; they don't have a default value and will cause a compiler error if used without initialization.
-
-* **Instance Variables**
-    * Associated with an object (non-static fields).
-    * Do not require explicit initialization; they are given a default value (e.g., `0` for numbers, `false` for booleans, `null` for objects).
-
-* **Class Variables**
-    * Associated with the class itself, declared using the `static` keyword.
-    * Like instance variables, they receive a default value if not explicitly initialized.
-
-### Variable Scope
-
-* **Local variables**: In scope only from their declaration to the end of the method or block they are defined in.
-* **Instance variables**: In scope as long as the object they belong to exists.
-* **Class (static) variables**: In scope for the entire lifetime of the program.
-
----
-
-## Java File Structure
-
-* Multiple classes can be defined in the same `.java` file, but **only one** can be declared `public`. A file can also contain multiple non-public classes.
-
-| Element             | Required? | Ordering                  |
-| ------------------- | :-------: | ------------------------- |
-| **Package** |    No     | First line of the file    |
-| **Imports** |    No     | Immediately after package |
-| **Class Declaration** |    Yes    | Immediately after imports |
-| **Field Declaration** |    No     | Anywhere inside a class   |
-| **Method Declaration**|    No     | Anywhere inside a class   |
-
----
-
-## Destroying Objects
-
-All Java objects are stored in a memory area called the **heap**. The heap is a large pool of memory allocated to your application.
-
-### Garbage Collection (GC)
-Garbage Collection is the automatic process of freeing up memory on the heap by deleting objects that are no longer "reachable."
-
-* **What does "no longer reachable" mean?**
-    * The object has no active references pointing to it.
-    * All references to the object have gone out of scope (e.g., the method they were declared in has finished executing).
-* `static` objects are generally not eligible for garbage collection because they are tied to the class and exist for the program's entire lifecycle.
-
-* **`System.gc()`**
-    * This method **suggests** to the Java Virtual Machine (JVM) that now might be a good time to run the garbage collector.
-    * It does **not guarantee** that the GC will run. The JVM is free to ignore this request.
-
-* **`finalize()` method**
-    * A method from the `Object` class that is called by the garbage collector just before an object is destroyed.
-    * It was intended for releasing non-Java resources (like file handles or database connections).
-    * Its execution is **unpredictable** (it might not run at all) and it has been **deprecated** in modern Java.
-
----
-
-## Object vs. Reference
-
-| Object                                                                 | Reference                                                               |
-| ---------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| Sits on the **heap** and has no name.                                    | A named variable that holds the memory address of an object.            |
-| Can only be accessed through a reference.                              | Used to access the fields and methods of an object.                     |
-| Cannot be assigned to another object or passed directly to a method.   | Can be assigned to another reference, passed to, or returned from a method. |
-| Is what gets garbage collected.                                        | Can exist on the heap or the stack; it is not what gets collected by the GC. |
-| Varies in size depending on its fields.                                | All references are the same size, regardless of the object type they point to. |
+1.  Primitive Data Types
+2.  Literals
+3.  Types of Variables
+4.  Operators
+5.  Control Flow Statements
+6.  Type Casting
+7.  Arrays
+8.  Strings, StringBuffer, StringBuilder
+9.  Access Modifiers
+10. Encapsulation
+11. Static
+12. This
+13. Super
+14. Final
+15. Abstraction
+16. Polymorphism
+17. Exception Handling
+18. Packages
+19. File Input/Output
+20. Serialization
+21. Transient keyword
+22. enums
+23. immutable class
+24. Singleton class
+25. Autoboxing and Unboxing
+26. Upcasting and Downcasting
+27. instanceOf operator
+28. Inner Classes
+29. Java Collections Framework (Lists, Sets)
+30. Java Collections Framework (Map, Queue)
+31. Comparable and Comparator
+32. Threads
+33. Thread Methods
+34. Synchronized Methods
+35. Thread Communication
+36. Volatile keyword
+37. Java8 Features (Lambda functions and functional interfaces)
+38. Default Methods
+39. Method references
+40. Streams
+41. Optional class
+42. Date and Time Api
+43. JDBC
+44. Basic crud operations in hibernate
+45. Mapping using xml
+46. @Table,@Column,@Entity,@Id,@GeneratedValue,@Lob,@Transient,@Temporal
+47. @OneToOne
+48. @ManyToOne
+49. @OneToMany
+50. @ManyToMany
+51. Embedding objects (@Embeddable)
+52. Fetch types - eager, lazy
+53. Hibernate object states
+54. get, load
+55. cascading
+56. Caching - first level, second level
+57. Hql
+58. Criteria Api and its restrictions
+59. Native sql queries
+60. Pagination
