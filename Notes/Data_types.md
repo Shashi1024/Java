@@ -154,55 +154,177 @@
 
   - represent a sequence of characters. They are enclosed in double quotes (").
 
-  - Immutability: String literals (and String objects in general) are immutable. Once created, their value cannot be changed.
+  - **Immutability**: String literals (and String objects in general) are immutable. Once created, their value cannot be changed.
 
-String Pool (String Interning): For efficiency, Java maintains a "String Pool" (or String Constant Pool) in the heap. When a string literal is encountered, the JVM first checks if an identical string already exists in the pool.
+  - ***String Pool (String Interning)***: For efficiency, Java maintains a "String Pool" (or String Constant Pool) in the heap. When a string literal is encountered, the JVM first checks if an identical string already exists in the pool.
 
-If it exists, the JVM reuses the reference to that existing string.
+    - If it exists, the JVM reuses the reference to that existing string.
 
-If it doesn't exist, a new String object is created in the pool, and its reference is returned.
+    - If it doesn't exist, a new String object is created in the pool, and its reference is returned.
 
-This optimization saves memory, especially when the same string literal is used multiple times.
+    - This optimization saves memory, especially when the same string literal is used multiple times.
 
-Escape Sequences: Like character literals, string literals can also use escape sequences.
 
-Example:
 
-String message = "Hello, World!";
-String path = "C:\\Users\\Documents\\file.txt"; // Using double backslash for literal backslash
-String multiLine = "Line 1\nLine 2";
+- `Boolean` Literals
 
-Real-time Example: String userName = "Alice";, String query = "SELECT * FROM Users";, String welcomeMessage = "Welcome to our application!";
+  - represent logical truth values.
 
-e. Boolean Literals
+  - Values: true and false.
 
-Boolean literals represent logical truth values.
 
-Values: There are only two boolean literals: true and false.
+f. `Null` Literal
 
-Example:
+  - It indicates that the reference variable does not currently point to any object in memory.
 
-boolean isActive = true;
-boolean isFinished = false;
+  - Type: It can be assigned to any non-primitive (reference) variable. It cannot be assigned to primitive variables.
 
-Real-time Example: if (isLoggedIn) { ... }, while (hasMoreData) { ... }
 
-f. Null Literal
 
-The null literal represents the absence of a value for a reference type.
 
-Type: It can be assigned to any non-primitive (reference) variable. It cannot be assigned to primitive variables.
+## Type Casting
+- process of converting value of one data type into another data type
+- can be done for both primitive and Non-primitive data types [provides compatibility and polymorphism]
 
-Meaning: It indicates that the reference variable does not currently point to any object in memory.
+- **Implicit Type Casting (Widening)**
+  - Target type is larger than the source type. (no loss of data)
+  - automatic and safe
 
-Example:
+- **Explicit Type Casting (Narrowing)**
+  - target type is smaller than the source type
+  - conversion may not always be safe (data loss or loss of precision)
 
-String name = null;
-java.util.List<String> myList = null;
-// int primitive = null; // Compile-time error
+### Type Casting with Reference Types
+-  involves converting an object reference from one class type to another. This is deeply tied to inheritance and polymorphism.
+- **Upcasting**
+  - casting a subclass object to a superclass reference.
+  - **Reason**: A subclass object is always an instance of its superclass. The superclass reference can point to any of its subclass objects.
 
-Real-time Example: Representing an optional field that hasn't been set yet (e.g., a middle name), or indicating that an object could not be found or created.
+  - **Effect**: The object itself doesn't change, but the reference now treats the object as its superclass type. This means you can only access the methods and fields defined in the superclass (or overridden by the subclass).
 
-Conclusion
+- **Downcasting**
+  -  casting a superclass reference to a subclass type.
+  - **Reason**: A superclass reference might or might not be pointing to an actual object of the target subclass.
 
-Literals are the fundamental building blocks for providing constant values directly within your Java source code. By understanding the different types of literals, their specific syntax, and how they are handled by the JVM (especially the String Pool), you gain a deeper appreciation for how data is represented and managed in your Java applications. This knowledge is crucial for writing clear, correct, and sometimes more optimized code.
+  - **Potential Issue**: If the superclass reference is not actually pointing to an object of the target subclass (or one of its sub-subclasses), a java.lang.ClassCastException will be thrown at runtime.
+  
+  - ***`instanceof` Operator for safe Downcasting***
+    - To prevent `ClassCastException` during downcasting, you should always use the instanceof operator to check the actual type of the object before performing the cast.
+
+
+## Variables
+-  a variable is a name given to a memory location.
+- each variable has a data type.
+- data type determines the size, layout of memory, range of values, set of operations that can be applied
+
+### Variable Types
+
+* **Local Variables**
+    - allocated on Stack Memory. (each time a method is called a `Stack Frame` is created and these variables reside in that frame)
+    * Declared inside a method.
+    * Cannot have access modifiers (public, protected, private) or be declared `static`.
+    * Only the `final` keyword is permitted.
+    * **Must be initialized** before use; they don't have a default value and will cause a compiler error if used without initialization.
+
+* **Instance Variables (Non-static)**
+    - allocated on `heap` memory.
+    * Associated with an object (non-static fields).
+    * Do not require explicit initialization; they are given a default value (e.g., `0` for numbers, `false` for booleans, `null` for objects).
+
+* **Class Variables (Static)**
+    - created when class is loaded into memory by JVM
+    * Associated with the class itself, declared using the `static` keyword.
+    * Like instance variables, they receive a default value if not explicitly initialized.
+    - Stored in a special area of the Heap memory known as the Method Area (or sometimes referred to as PermGen/Metaspace in older/newer JVMs, respectively).
+
+### Variable Scope
+
+* **Local variables**: In scope only from their declaration to the end of the method or block they are defined in.
+* **Instance variables**: In scope as long as the object they belong to exists.
+* **Class (static) variables**: In scope for the entire lifetime of the program.
+
+#### `final` Keyword
+- applied to variables to make them constant.
+- for primitive variables the value remains constant
+- for reference variables Once a `final` reference variable is initialized, it can only point to that specific object. You cannot reassign it to point to another object.
+
+
+
+## Methods
+- block of code that defines the behaviour of objects and classes
+  - Encapsulation
+  - Modularity
+  - Reusability
+  - Abstraction
+
+- Method Declaration:
+  - Access Modifier (optional)
+  - static/non-static(instance method) (optional)
+  - returnType
+  - Method name
+  - parameter List (optional)
+  - Method body
+  - Return value (optional)
+
+- **Method Signature**
+  - consists of *Method Name* and *Parameter List (number, type, order)*
+  - return type, access modifier are not part of Signature.
+  - Signature is used to uniquely identify a method in a class.
+
+
+- **Types of Methods**
+  - `Instance` Methods
+    - belongs to an object
+    - can access instance and static varaibles of the class, and call other instance and static methods.
+    - it must be called on an object reference
+    - object is created on heap, instance methods are associated with the object (actual code for the method resides in the Method area(part of the heap) and is shared among all instances).
+    - when an instance method is invoked, a stack frame is created on the Stack.
+  - `Static` Methods
+    - belongs to class itself
+    - can directly access static variables and call other static methods of the class.
+    - cannot access instance variables or call instance methods without object reference.
+    - it can be directly called using class name or object reference(not recommended).
+    - Static Methods are loaded into the Method Area along with the class definition, when the JVM loads the class into Memory.
+    - when invoked, a stack frame is created on the Stack.
+  - `Constructors`
+    - gets invoked when an instance of a class is created using the `new` keyword.
+    - it has no return type (not even `void`)
+  - `Abstract` Methods
+    - Just Wait!
+
+
+
+- Method Parameters & Arguments
+  - **Parameters**: variables declared in the method signature.
+  - **Arguments**: actual values passed to a method when it is invoked.
+
+  - Java uses `Pass by Value` for arguments,
+    - *Primitive types*: when passed a copy of the vlaue is made.
+    - *Reference types*: when passed a copy of the reference is made. (this is a bit tricky, it is pass by value because the actual value of the reference is copied (doesnt matter even if that value is an address because we passed the reference variable not the object)).
+
+- **Method Overloading**
+  - allows a class to have multiple methods with same name but different method signatures.
+    - different no. of parameters
+    - different data types of parameters
+    - different order of data types of parameters
+  - we can use any modifier and return type of the overloaded method as long as the parameter list is different.
+  
+- **The `main` Method**
+  - The `public static void main(String[] args)` method is the entry point for any standalone Java application.
+  - `public`: for JVM to access it from anywhere
+  - `static`: JVM can call it without creating the an object of the class
+  - `void`: it doesnt return any value to the Operating System
+  - `main`: the specific name recognized by the JVM
+  - `String[] args`: array of string objects to receive the command line arguments
+
+
+
+- When a Method is called a Stack frame is created and pushed in to the stack,which contains,
+  - Local variables
+  - parameters
+  - return address
+  - other operational data
+
+- when the method completes its execution, the stack frame is popped out of the stack.
+
+

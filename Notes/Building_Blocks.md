@@ -16,27 +16,7 @@ Topics : ...
 ### Numeric Literals
 *You can include underscores (`_`) in numeric literals to improve readability (e.g., `int number = 1_000_000;`).*
 
-### Variable Types
 
-* **Local Variables**
-    * Declared inside a method.
-    * Cannot have access modifiers (public, protected, private) or be declared `static`.
-    * Only the `final` keyword is permitted.
-    * **Must be initialized** before use; they don't have a default value and will cause a compiler error if used without initialization.
-
-* **Instance Variables**
-    * Associated with an object (non-static fields).
-    * Do not require explicit initialization; they are given a default value (e.g., `0` for numbers, `false` for booleans, `null` for objects).
-
-* **Class Variables**
-    * Associated with the class itself, declared using the `static` keyword.
-    * Like instance variables, they receive a default value if not explicitly initialized.
-
-### Variable Scope
-
-* **Local variables**: In scope only from their declaration to the end of the method or block they are defined in.
-* **Instance variables**: In scope as long as the object they belong to exists.
-* **Class (static) variables**: In scope for the entire lifetime of the program.
 
 ---
 

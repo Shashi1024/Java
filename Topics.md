@@ -1,10 +1,10 @@
 - [✔︎] Primitive Data Types
 --- 
-- [ ] Literals
-- [ ] Types of Variables
+- [✔︎] Literals
+- [✔︎] Types of Variables
 - [ ] Operators
 - [ ] Control Flow Statements
-- [ ] Type Casting
+- [✔︎] Type Casting
 - [ ] Arrays
 - [ ] Strings, StringBuffer, StringBuilder
 - [ ] Access Modifiers
