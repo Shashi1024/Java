@@ -14,6 +14,10 @@
   - *Java Native Interface*
   - *Native Method Libraries*
 
+
+![Alt text](../can/JVM_arch.png "JVM Architecture")
+
+
 - ***Class Loader Subsystem***, *(The Gatekeeper of Classes)*
   - responsible for loading `.class` files from the file system, network, or other sources into the JVM's memory.
   - It performs 3 main functions : `Loading`, `Linking`, `Initialization`
@@ -42,7 +46,7 @@
         - The JVM ensures that a class is initialized only after its direct superclass has been initialized.
 
 
-  - ***Class Loader Delegation Heirarchy**
+  - **Class Loader Delegation Heirarchy**
   - Java employs a delegation model for class loading, which ensures security and prevents malicious code from replacing core Java classes. 
   - There are three built-in class loaders:
     1. **Bootstrap Class Loader (Primordial Class Loader)**
@@ -67,17 +71,17 @@
   - responsible for executing the bytecode that has been loaded and linked by the Class Loader.
   - it consists of,
     1. **Interpreter**
-      - reads and executes bytecode instructions one by one
-      - It's relatively slow because it interprets each instruction every time it's encountered. (Good for code that is executed only few times)
+       - reads and executes bytecode instructions one by one
+       - It's relatively slow because it interprets each instruction every time it's encountered. (Good for code that is executed only few times)
 
     2. **JIT (Just-In-Time) Compiler** (modern JVMs like HotSpot uses this)
-      - It identifies "hot spots" (frequently executed code paths, like loops or frequently called methods)
-      - It compiles these bytecode sequences into highly optimized native machine code during runtime.
-      - Once compiled, the native code is stored in the code cache and can be executed directly by the CPU, bypassing the interpreter for subsequent calls. This significantly speeds up execution.
-      - The JIT compiler also performs various optimizations (e.g., inlining, dead code elimination).
+        - It identifies "hot spots" (frequently executed code paths, like loops or frequently called methods)
+        - It compiles these bytecode sequences into highly optimized native machine code during runtime.
+        - Once compiled, the native code is stored in the code cache and can be executed directly by the CPU, bypassing the interpreter for subsequent calls. This significantly speeds up execution.
+        - The JIT compiler also performs various optimizations (e.g., inlining, dead code elimination).
 
     3. **Garbage Collector (GC)**
-      - Automatic Memory Management on the Heap.
+       - Automatic Memory Management on the Heap.
 
 
 
@@ -101,63 +105,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-+-------------------------------------------------------------------+
-|                           JVM Architecture                        |
-+-------------------------------------------------------------------+
-|                                                                   |
-| +-------------------------+                                       |
-| | Class Loader Subsystem  |                                       |
-| |                         |                                       |
-| | - Loading               |                                       |
-| | - Linking               |                                       |
-| |   - Verification        |                                       |
-| |   - Preparation         |                                       |
-| |   - Resolution          |                                       |
-| | - Initialization        |                                       |
-| +-------------------------+                                       |
-|              |                                                    |
-|              V                                                    |
-| +---------------------------------------------------------------+ |
-| |                    Runtime Data Areas                         | |
-| |                                                               | |
-| | +-----------------------+  +--------------------------------+ | |
-| | |    Method Area        |  |          Heap                  | | |
-| | | (Class Data, Statics) |  | (Objects, Instance Variables,  | | |
-| | +-----------------------+  |  Arrays)                       | | |
-| |                            +--------------------------------+ | |
-| |                                                               | |
-| | +-----------------------+  +--------------------------------+ | |
-| | |    JVM Stacks         |  |          PC Registers          | | |
-| | | (Local Vars, Frames)  |  | (Current Instruction Address)  | | |
-| | +-----------------------+  +--------------------------------+ | |
-| |                                                               | |
-| | +-----------------------+                                       |
-| | | Native Method Stacks  |                                       |
-| | +-----------------------+                                       |
-| +---------------------------------------------------------------+ |
-|              |                                                    |
-|              V                                                    |
-| +---------------------------------------------------------------+ |
-| |                    Execution Engine                           | |
-| |                                                               | |
-| | +---------------+  +-------------------+  +-----------------+ | |
-| | | Interpreter   |  | JIT Compiler      |  | Garbage         | | |
-| | | (Bytecode     |  | (HotSpot          |  | Collector       | | |
-| | |  Execution)   |  |  Optimization)    |  | (Memory         | | |
-| | +---------------+  +-------------------+  |  Management)    | | |
-| +---------------------------------------------------------------+ |
-|                                                                   |
-| +-------------------------+  +--------------------------------+ | |
-| | Java Native Interface   |  | Native Method Libraries        | | |
-| | (JNI)                   |  | (C/C++ Code, etc.)             | | |
-| +-------------------------+  +--------------------------------+ | |
-+-------------------------------------------------------------------+
