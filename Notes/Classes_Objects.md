@@ -21,7 +21,7 @@
   - An object is a runtime entity that has state (Values), behavior(Methods), and identity(Memory address). It's a concrete manifestation of a class.
   - *Object Creation Process (`new` keyword)*,
     - Objects are created using the new keyword, which allocates memory on the Heap for the new object.
-    - *Steps*
+    - *Steps* (In short, detailed explanation in JVM Notes *Link: [JVM Notes](JVM.md)*)
       - Declaration --> declares a refernce variable on the Stack (only if a variable is being declared to store the object reference)
       - Instantiation --> (Memory Allocation) this includes space for all instance variables (initialized to their default values) and **Object Overhead**
       - Contructor Invocation --> after memory allocation, suitable constructor is invoked.
@@ -30,6 +30,9 @@
 
 
 ![Alt text](../can/Obj_creation.png "JVM Architecture")
+
+
+
 
 
 

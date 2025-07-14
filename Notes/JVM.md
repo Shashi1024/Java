@@ -72,6 +72,9 @@
 - ***JVM Memory Areas (Runtime Data Areas)***
   - *In another file --> Memory Management in Java*
 
+- ***Object Creation Process***
+  -
+
 
 - ***Execution Engine*** (Brings Bytecode to Life)
   - responsible for executing the bytecode that has been loaded and linked by the Class Loader.
