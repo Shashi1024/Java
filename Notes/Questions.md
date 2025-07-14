@@ -1,2 +1,3 @@
 - What is a native method?
 - what is Object Overhead?
+- What is a daemon thread?
