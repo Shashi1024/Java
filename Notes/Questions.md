@@ -1,0 +1,2 @@
+- What is a native method?
+- what is Object Overhead?

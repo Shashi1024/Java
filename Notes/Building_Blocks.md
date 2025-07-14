@@ -11,7 +11,10 @@ Topics : ...
 ## Initializers and Variables
 
 ### Instance Initializer Blocks
-*Also known as static initializers, these blocks of code are executed when an object is created.*
+*these blocks of code are executed when an object is created, (executed prior to the execution of the constructors)*
+
+### static Initializer Blocks
+*these blocks of code are executed when a class is loaded into the memory, (executed only once irrespective of how many objects are created)*
 
 ### Numeric Literals
 *You can include underscores (`_`) in numeric literals to improve readability (e.g., `int number = 1_000_000;`).*

@@ -6,7 +6,9 @@
 ## Primitive Data Types
 - They store the actual value directly in memory.
 - No methods are associated with primitive Data Types.
-- Memory is allocated on Stack.
+- If declared as **local variables or method parameters**: Stored directly on the Stack as part of the method's stack frame.
+- If declared as **instance variables**: Stored on the Heap as part of the object they belong to.
+- If declared as **static variables**: Stored in the Method Area.
 
 
     |Type| Size |Default|Range|Remarks|
@@ -35,7 +37,7 @@
 ## Non-Primitive (Reference) Data Types
 - dont store the value directly
 - they store a reference (a memory address) to the object's location in the heap memory. [a pointer to an object].
-- Objects are allocated memory on Heap, and references on Stack.
+- Objects are allocated memory on Heap, and the allocation for reference variable depends on whether it is instance, static or local same as the primitive types.
 - `default`: `null`
 - `size` : the size of a reference variable is typically fixed (4 bytes or 8 bytes based on the JVM)
   - size of the object it refers to can vary.
