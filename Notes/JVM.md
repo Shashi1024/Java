@@ -52,7 +52,7 @@
     1. **Bootstrap Class Loader (Primordial Class Loader)**
         - Loads core Java API classes (e.g., `java.lang.*`, `java.util.*`) from the `rt.jar` (runtime library) and other core library JARs in the `<JAVA_HOME>/jre/lib` directory.
         - It's implemented in native code (C/C++) and doesn't have a parent.
-        - *Parent* : `null`
+        - *Parent* : `null` (It's implemented in native code and doesn't have a parent.)
 
     2. **Extension Class Loader**
         - Loads classes from the extension directories, typically `<JAVA_HOME>/jre/lib/ext` or any directory specified by the `java.ext.dirs` system property.
@@ -64,7 +64,13 @@
         - This is the class loader that typically loads your application's classes.
         - *Parent* : Extension Class Loader.
 
-    - **Delegation Principle** --> When a Class Loader is asked to load a class, it first delegates the request to its parent. Only if the parent cannot find or load the class does the current Class Loader attempt to load it itself. This ensures that core Java classes are always loaded by the Bootstrap Class Loader, preventing them from being overridden.
+    - **Delegation Principle** --> When a Class Loader is asked to load a class, it first delegates the request to its parent. Only if the parent cannot find or load the class does the current Class Loader attempt to load it itself. This ensures that core Java classes are always loaded by the Bootstrap Class Loader, preventing them from being overridden. 
+      - Bootstrap -> Extension -> application
+      - (If none of the classloaders can find the class, a `ClassNotFoundException` is thrown.)
+
+
+- ***JVM Memory Areas (Runtime Data Areas)***
+  - *In another file --> Memory Management in Java*
 
 
 - ***Execution Engine*** (Brings Bytecode to Life)

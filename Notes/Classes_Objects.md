@@ -28,6 +28,11 @@
       - Reference Assignment --> The memory address of the newly created object on the Heap is returned and this address to assigned to the reference variable.
 
 
+
+![Alt text](../can/Obj_creation.png "JVM Architecture")
+
+
+
 ***Order of Execution when an object is Created**
 - first of all all the static initializers and variables are initialized when the class is loaded into the memory (they are executed only once when the class is loaded into memory, no matter how many objects we create).
 
