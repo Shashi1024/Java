@@ -1,7 +1,33 @@
 *Topics: JVM, JRE, JDK ...*
 
 
+
+## Java Development Kit (JDK): The Complete Development Suite
+
+- **JDK = JRE + Development Tools.**
+- The JDK is a superset of the JRE. It includes everything in the JRE, plus a comprehensive set of tools for developing, compiling, debugging, and packaging Java applications.
+- Key Development Tools in JDK:
+  - `javac` --> The Java compiler (converts .java source code to .class bytecode).
+  - `java` --> The Java application launcher (invokes the JVM to run .class files).
+  - `jdb` --> The Java debugger.
+  - `javadoc` --> The documentation generator.
+  - `jar` --> The Java archive tool (for creating JAR files).
+  - And many more utilities.
+
+
+##  Java Runtime Environment (JRE): The Execution Package
+
+- **JRE = JVM + Java Class Libraries + Supporting Files.**
+- a software package that provides the minimum requirements for executing a Java application.
+- Components of JRE,
+  - **Java Virtual Machine (JVM)**
+  - **Java Class Libraries (or Java API)**
+  - **Supporting Files**
+
+
+
 ## JVM
+
 -  It's an abstract machine that provides a runtime environment in which Java bytecode can be executed.
 - The JVM is responsible for loading, verifying, executing Java bytecode, and managing memory.
 - It makes Java a "write once, run anywhere" language by abstracting the underlying operating system and hardware.
@@ -28,6 +54,7 @@
       - finds `.class` for a given class name
       - it reads the binary data from `.class` file
       - It creates a `java.lang.Class` object in the Method Area for that class. This Class object contains all the metadata about the class (fields, methods, constructors, interfaces, superclass, etc.).
+      (this is something related to "Klass Pointer", explore a bit)
       - For each loaded class, the JVM stores its fully qualified name, its superclass's fully qualified name, and whether it's a class, interface, or enum.
 
     - **Linking** (has 3 sub-steps)
@@ -142,5 +169,100 @@
     - Threads that are currently running.
 
 - If an object is not reachable from any GC Root, it is considered garbage and eligible for collection.
+
+
+- ***Garbage Collection Algorithms***
+  - **Mark and Sweep**
+    - *Mark Phase* --> The GC traverses the object graph starting from GC Roots, marking all reachable objects as `live`.
+    - *Sweep Phase* --> The GC then iterates through the entire Heap, reclaiming memory from all unmarked (unreachable) objects.
+    - *Problem* --> this leads to fragmentation (free memory is scattered in small, non-contiguous blocks)
+
+  - **Copying**
+    - divides Heap into two equal  (semi spaces).
+    - During collection, it copies all live objects from the `from` space to the `to` space.
+    - After copying, the `from` space is completely cleared.
+    - eliminates fragmentation but needs twice the memory (half is almost always empty)
+
+  - **Mark and Compact (Mark-Sweep-Compact)**
+    - *Mark Phase* --> identifies `live` objects.
+    - *Compaction Phase* --> Moves all live objects to one end of the Heap, compacting the free space into a single contiguous block.
+    - *Advantage* --> provides address fragmentation
+    - but can be slower due to object Movement
+
+  - **Generational Garbage Collection**
+    - most of JVMs (like hotsopt) use this.
+    - it is based on `Generational Hypothesis`
+    - **Generational Hypothesis**
+      - *Most Objects are Short-Lived* --> Many objects are created, used briefly, and then become garbage (e.g., local variables, temporary objects).
+      - *Few objects are long-lived* --> A small percentage of objects survive for a long time (e.g., application configuration, long-lived data structures).
+    
+    - to optimize GC, heap is divided into generations,
+      - **Young Generation**
+        - where new objects are initially allocated
+        - Typically divided into,
+          - ***Eden Space*** --> Most new objects are created here
+          - ***Survivor Spaces (S0 and S1)*** --> Objects that survive a minor GC in Eden are moved between these two spaces.
+
+        - ***Minor GC (Young GC)*** --> Occurs frequently. its efficient, it primarilly uses a copying algorithm and most objects in the Young Generation are expected to be Garbage.
+
+      - **Old Generation (Tenured Generation)**
+        - Objects that survive multiple Minor GCs (i.e., they are long-lived) are "promoted" or "tenured" to the Old Generation.
+
+        - ***Major GC (Full GC)*** --> less frequent than Minor GC.
+          - It cleans up the entire Heap (both Young and Old Generations). It's typically more expensive and can cause longer "Stop-The-World" (STW) pauses (where application threads are halted).
+
+
+- ***Common Garbage Collectors***
+  - `Serial GC`: Simple, single-threaded. Suitable for small applications.
+
+  - `Parallel GC (Throughput Collector)`: Multi-threaded Minor and Major GC. Designed for high throughput, but can have longer STW pauses.
+
+  - `CMS (Concurrent Mark Sweep) GC`: Aims to reduce STW pauses by performing most of its work concurrently with application threads. Deprecated in newer Java versions.
+
+  - `G1 (Garbage-First) GC`: A region-based, concurrent, and parallel collector designed for large heaps and multi-core processors. Aims to meet user-defined pause time goals. Default in recent Java versions.
+
+  - `ZGC / Shenandoah`: Low-latency, highly concurrent collectors designed for very large heaps (terabytes) with extremely short STW pauses.
+
+
+  (Try to elaborate these Garabage Collectors)
+
+
+
+## Destroying Objects
+
+### Garbage Collection (GC)
+Garbage Collection is the automatic process of freeing up memory on the heap by deleting objects that are no longer "reachable."
+
+* **What does "no longer reachable" mean?**
+    * The object has no active references pointing to it.
+    * All references to the object have gone out of scope (e.g., the method they were declared in has finished executing).
+* `static` objects are generally not eligible for garbage collection because they are tied to the class and exist for the program's entire lifecycle.
+
+* **`System.gc()`**
+    * This method **suggests** to the Java Virtual Machine (JVM) that now might be a good time to run the garbage collector.
+    * It does **not guarantee** that the GC will run. The JVM is free to ignore this request.
+
+* **Finalization (`finalize()` method)**
+    - The `Object` class has a `protected void finalize()` method.
+    * A method from the `Object` class that *might* be invoked by the garbage collector just before an object is destroyed, giving the object a chance to perform cleanup operations .
+    * It was intended for releasing non-Java resources (like file handles or database connections).
+    * Its execution is **unpredictable** (it might not run at all) and it has been **deprecated** in modern Java.
+    - *Allegations against `finalize()`*
+      - **Non-deterministic** --> no gurantee that it will be invoked.
+      - **Performance Overhead** --> add overhead and delay garbage collection.
+      - **Resurrection** --> An object can "resurrect" itself from garbage by making itself reachable again within`finalize()`, leading to complex scenarios.
+
+    - *Alternatives* --> `try-with-resources`
+
+
+***JVM Memory Management (Summary)***
+- *Class Loading* --> classes are loaded into method area (Static variables and bytecode reside here).
+
+- *Object Creation* --> `new` allocates Objects on Heap. Instance variables are part of Objects.
+
+- *Method Execution* --> each thread gets a stack for its method calls. Local variables and parameters live here. References on Stack (and method area) point to objects on Heap.
+
+- *Garbage COllection* --> monitors Heap, identifies and reclaims memory from unreachable objects.
+
 
 

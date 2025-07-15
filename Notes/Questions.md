@@ -11,3 +11,4 @@
 - What is resolution is class loader?
 - What is Compacting Garbage Collector?
 - What is a Klass pointer?
+- Garbage Collectors detailed description
