@@ -29,12 +29,6 @@
 
 
 
-![Alt text](../can/Obj_creation.png "JVM Architecture")
-
-
-
-
-
 
 ***Order of Execution when an object is Created**
 - first of all all the static initializers and variables are initialized when the class is loaded into the memory (they are executed only once when the class is loaded into memory, no matter how many objects we create).
@@ -75,13 +69,12 @@
   
   - the Order of execution will be 
 
-    `
-    Parent Static Initializer
-    Child Static Initializer
-    Parent Instance Initializer
-    Patent Constructor
-    Child Instance Initializer
-    Child Constructor`
+    - `Parent Static Initializer`
+    - `Child Static Initializer`
+    - `Parent Instance Initializer`
+    - `Patent Constructor`
+    - `Child Instance Initializer`
+    - `Child Constructor`
     
   - This means first parent and then the child classes are loaded into memory, then the parent is Initialized and then the child is Initialized.
 

@@ -8,4 +8,6 @@
 - String Pool, java 21?
 - What are inner classes, static inner, final classes, abstract and how are they processed?
 - break and continue in detail (using annotations)
-- 
+- What is resolution is class loader?
+- What is Compacting Garbage Collector?
+- What is a Klass pointer?

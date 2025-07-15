@@ -17,6 +17,7 @@
 
 ![Alt text](../can/JVM_arch.png "JVM Architecture")
 
+---
 
 - ***Class Loader Subsystem***, *(The Gatekeeper of Classes)*
   - responsible for loading `.class` files from the file system, network, or other sources into the JVM's memory.
@@ -69,12 +70,40 @@
       - (If none of the classloaders can find the class, a `ClassNotFoundException` is thrown.)
 
 
+---
+
 - ***JVM Memory Areas (Runtime Data Areas)***
-  - *In another file --> Memory Management in Java*
+  - *In another file --> Link: [Memory Allocation](Memory_Allocation.md)*
 
-- ***Object Creation Process***
-  -
+---
 
+- ***Object Creation Process*** *(When the `new` keyword is used)*
+  - **Class Loading Check**
+    - checks if the class of the object being created has already been loaded by the ClassLoader
+    - if not, the classloader subsystem will load the `.class` file, performs verification, preparation (memory allocation and initialization of static variables), and optionally resolution (replacing symbolic references with direct references)
+
+  - **Memory Allocation**
+    - once class is loaded, JVM allocates memory for new object on Heap.
+    - size of the object is known after the class is loaded
+    - there are 2 ways of allocating memory,
+      - *Pointer Bump* --> if the heap is managed by a `free pointer` (like in Compacting Garbage collector), the pointer is simply incremented by object size.
+      - *Free List* --> if the heap has fragmented free spaces, JVM searches for large enough block in a `free list` of available memory.
+
+  - **Instance Variable Initialization (Zeroing)**
+    - the allocated memory for the object's instance variables is initialized to default values.
+
+  - **Header Setting**
+    - the object's header is set.
+    - the header typically includes,
+      - *Mark Word* --> Stores hash code, GC age, lock information, ...
+      - *Klass Pointer* --> a pointer to the class metadata in the Method area, which contains information about the object's type, methods, fields.
+
+  - **Constructor Execution**
+    - constructor of the class is invoked
+
+
+
+---
 
 - ***Execution Engine*** (Brings Bytecode to Life)
   - responsible for executing the bytecode that has been loaded and linked by the Class Loader.
@@ -94,6 +123,8 @@
 
 
 
+---
+
 ### Garbage Collection (GC): Automatic Memory Management
 
 - The Garbage Collector is a daemon thread that automatically manages memory on the Heap.
@@ -111,6 +142,5 @@
     - Threads that are currently running.
 
 - If an object is not reachable from any GC Root, it is considered garbage and eligible for collection.
-
 
 
