@@ -298,3 +298,17 @@ Garbage Collection is the automatic process of freeing up memory on the heap by 
 
 
 
+
+
+---
+
+### Java Code Compilation Process
+
+- uses `javac`
+  - Parsing
+  - Semantic Analysis
+  - Bytecode Generation
+  - creates `.class` file
+
+
+- Intermediate code form is called the `bytecode` because, each instruction is typically represented by a single `byte`.
