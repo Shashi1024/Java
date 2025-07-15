@@ -14,17 +14,49 @@
   - `jar` --> The Java archive tool (for creating JAR files).
   - And many more utilities.
 
+---
 
 ##  Java Runtime Environment (JRE): The Execution Package
 
 - **JRE = JVM + Java Class Libraries + Supporting Files.**
 - a software package that provides the minimum requirements for executing a Java application.
 - Components of JRE,
-  - **Java Virtual Machine (JVM)**
-  - **Java Class Libraries (or Java API)**
-  - **Supporting Files**
+  - **Java Virtual Machine (JVM)** --> responsible for interpreting and executing Java bytecode. (JRE provides a concrete implementation of the JVM specification.)
+
+  - **Java Class Libraries (or Java API)** --> a vast collection of pre-written code (classes and interfaces).these libraries provide functionalities like,
+    - `java.lang` --> Core language classes (e.g., `Object`, `String`, `System`).
+    - `java.util` --> Utility classes (e.g., `ArrayList`, `HashMap`, `Date`).
+    - `java.io` --> Input/Output operations.
+    - `java.net` --> Networking.
+    - `java.awt` and `javax.swing` --> Graphical User Interface (GUI) toolkits.
+    - `java.sql` --> JDBC (Java Database Connectivity) API.
+    - ...
+
+  - **Supporting Files** --> Other files necessary for the JVM and libraries to function correctly, such as configuration files, property files, and sometimes native libraries.
 
 
+- **How JRE Relates to JVM ?**
+  - The **JVM is an abstract specification** (a set of rules and requirements for how a virtual machine should behave), it specifies,
+    - Instruction Set
+    - Memory Areas
+    - Class File Format
+    - Garbage Collection
+    - Runtime Data Areas
+    - Instruction Execution
+
+    - it ensures **Platform Independence** of Java bytecode (*"Write Once, Run Anywhere" (WORA) paradigm*)
+
+  - The **JRE is a concrete implementation** of that JVM specification, bundled with all the necessary libraries and files that a Java program needs to run, it bundles,
+    - An implementation of JVM
+    - Java Class Libraries
+    - Supporting Files
+
+    - usually there are different JREs(JREs are platform dependent meaning there are different versions of JREs for different OS because the JRE includes native code components and it needs to interact directly with the hardware) but they adhere to the standard JVM specification making Java bytecode Platform Independent.
+
+
+- ***The complete hierarchy is: JDK > JRE > JVM***
+
+---
 
 ## JVM
 
