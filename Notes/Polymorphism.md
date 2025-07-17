@@ -1,4 +1,4 @@
-*Topics: Polymorphism, . . .*
+*Topics: Polymorphism (Compile-time, Runtime), . . .*
 
 ## Polymorphism
 - allows objects to take on "many forms," meaning they can be treated as instances of their own class, their parent class, or any interface they implement. 

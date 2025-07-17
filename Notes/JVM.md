@@ -1,4 +1,4 @@
-*Topics: JVM, JRE, JDK ...*
+*Topics: JDK, JRE, JVM, Class Loader, Garbage Collection, . . .*
 
 
 

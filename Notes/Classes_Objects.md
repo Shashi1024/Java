@@ -1,4 +1,4 @@
-*Topics --> Classes and Objects, ...*
+*Topics --> Classes and Objects, Instance Initializers, Constructors, Types of Classes(static, local, final, sealed, inner)...*
 
 - *Class* --> is a blueprint, defines the structure (data/fields) and behavior (methods) that objects of that type will posses. its a logical construct.
 - *Object* --> is a concrete instance of a class.
@@ -30,12 +30,28 @@
 
 
 
-***Order of Execution when an object is Created**
+***Order of Execution when an object is Created***
 - first of all all the static initializers and variables are initialized when the class is loaded into the memory (they are executed only once when the class is loaded into memory, no matter how many objects we create).
 
 - then the instance variables are initialized and instance initialization blocks are executed in the order they appear.
 
 - Next the Constructors are invoked.
+
+
+## Initializers and Variables
+
+### Instance Initializer Blocks
+*these blocks of code are executed when an object is created, (executed prior to the execution of the constructors)*
+
+### static Initializer Blocks
+*these blocks of code are executed when a class is loaded into the memory, (executed only once irrespective of how many objects are created)*
+
+### Numeric Literals
+*You can include underscores (`_`) in numeric literals to improve readability (e.g., `int number = 1_000_000;`).*
+
+
+
+---
 
 
 
@@ -93,6 +109,19 @@
 
 
 
+## Java File Structure
+
+* Multiple classes can be defined in the same `.java` file, but **only one** can be declared `public`. A file can also contain multiple non-public classes.
+
+| Element             | Required? | Ordering                  |
+| ------------------- | :-------: | ------------------------- |
+| **Package** |    No     | First line of the file    |
+| **Imports** |    No     | Immediately after package |
+| **Class Declaration** |    Yes    | Immediately after imports |
+| **Field Declaration** |    No     | Anywhere inside a class   |
+| **Method Declaration**|    No     | Anywhere inside a class   |
+
+---
 
 
 ### Different Types of Classes

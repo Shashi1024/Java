@@ -1,4 +1,4 @@
-> *Topics: Primitive, Non-primitive (reference), Wrapper Classes*
+> *Topics: Primitive, Non-primitive (reference), Wrapper Classes, Literals, Type Casting, Variables, Methods . . .*
 
 # Data Types
 - *Specifies the size and type of values that can be stored in a variable.*
@@ -70,6 +70,19 @@
     - `Instance Data`: The actual values of the object's instance variables.
 
     - `Padding`: Bytes added to ensure the object's size is a multiple of 8 bytes for memory alignment, optimizing access.
+
+
+
+## Object vs. Reference
+
+| Object                                                                 | Reference                                                               |
+| ---------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Sits on the **heap** and has no name.                                    | A named variable that holds the memory address of an object.            |
+| Can only be accessed through a reference.                              | Used to access the fields and methods of an object.                     |
+| Cannot be assigned to another object or passed directly to a method.   | Can be assigned to another reference, passed to, or returned from a method. |
+| Is what gets garbage collected.                                        | Can exist on the heap or the stack; it is not what gets collected by the GC. |
+| Varies in size depending on its fields.                                | All references are the same size, regardless of the object type they point to. |
+
 
 
 
