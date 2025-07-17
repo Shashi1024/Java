@@ -91,6 +91,114 @@
   - *static methods* --> they dont have this reference.
 
 
+
+
+
+
+### Different Types of Classes
+
+#### Abstract Classes
+-  An abstract class is a class that cannot be instantiated directly. It's designed to be a base class (superclass) that other classes can extend. It can contain both abstract methods (methods without an implementation) and concrete methods (methods with an implementation).
+
+- *Characteristics*,
+  - Declared using the `abstract` keyword.
+  - Can have both concrete methods and abstract methods (declared with `abstract` keyword, no body, ending with a semicolon).
+  - Can have constructors (though you can't instantiate the abstract class directly, its constructor is called by the subclass's constructor via `super()`).
+  - A class extending an abstract class must implement all its abstract methods, or it must also be declared `abstract`.
+
+
+#### Final Classes
+- a `final` class cannot be subclassed (inherited from).
+- *Characteristics*,
+  - declared using the `final` keyword
+  - all methods in a `final` class are implicitly `final` (cannot be overridden).
+  - `java.lang.String` is a `final` class.
+
+
+
+#### Immutable Classes
+
+
+#### Sealed Classes
+- allows to explicitly declare which other classes or interfaces are permitted to extend or implement them. 
+- this provides more control over the inheritence hierarchy than final (which prevents all inheritence) or abstract (which allows any class to extend).
+
+- *Characteristics*,
+  - declared using the `sealed` keyword, followed by the `permits` and a comma-separated list of permitted subclasses/implementations.
+  - Permitted subclasses must be in the same module or package.
+  - Permitted subclasses must be declared `final`, `sealed` or `non-sealed`
+
+
+
+#### Inner Classes
+- also called the nested classes, are classes defined within another class.(increases Encapsulation)
+
+- when an inner class is compiled, java generated a separated `.class` file for it. 
+- the naming convention for inner class `.class` files is typically `OuterClassName$InnerClassName.class`
+
+- **Implicit Reference to Outer Class instance**
+  - for non-static inner classes(member inner classes, local classes, anonymous classes), Java implicitly adds a **Synthetic field** to the inner class. 
+  - This field holds reference to the instance of the outer class that created the inner class
+  -This hidden reference is what allows a non-static inner class to directly access the outer class's instance members(even private ones) without explicit qualification.
+  - The compiler handles the passing of this outer class reference automatically.
+
+
+- **Types of Inner Classes**
+  - Nested Inner Class(Non-static Inner Class/ Member Inner Class)
+  - Static Nested Class
+  - Local Class
+  - Anonymous Class
+
+
+- ***Nested Inner Class(Non-Static Inner Class/Member Inner Class)***
+  - Inner class, not declated `static`
+  - *Characteristics*,
+    - can access all members, including `private` members, of outer class directly.
+    - Requires an instance of outer class to be created before an instance of the inner class can be created.
+    - Cannot declare `static` members itself, unless they are `final` constants
+    - Can be declared with `public`, `private`, `protected`, or `default` access modifiers.
+  
+  - *Instantiation*
+    ```
+    OuterClass outer = new OuterClass();
+    OuterClass.InnerClass inner = outer.new InnerClass();
+    ```
+
+
+
+- ***Static Nested Class***
+  - a class defined within another class and declared with the `static` keyword.
+  - *Characteristics*,
+    - Behaves like a top-level class, but is nested for packaging convenience.
+    - **Cannot access non-static(instance) members of outer class directly**. it can only access static members of the outer class.
+    - Does not require an instance of the outer class to be created.
+    - can declare `static` members itself
+    - can be declared with `public`, `private`, `protected`, or `default` access modifiers
+
+  - *Instantiation*
+    ```
+    OuterClass.StaticNestedClass nested = new OuterClass.StaticNestedClass();
+    ```
+
+
+- ***Local Class***
+  - a class defined inside a method, constructor or block
+  - *Characteristics*
+    - Has local scope, its only visible and usable within the block where its defined.
+    - cannot be declared with access modifiers or `static`
+    - can access members of the enclosing outer class (including private ones)
+    - can access final or effectively final local variables and parameters of the enclosing block. (an **effectively final** variable is one whose value is never changed after it is initialized)
+
+- ***Anonymous Class***
+  - a class that has no name and is defined and instantiated in a single expression.
+  - typically used to implement an interface or extend a class.
+  - *Characteristics*
+    - cannot have a constructor (because it has no name)
+    - can access members of the enclosing outer class
+    - can access `final` and effectively final local variables and parameters of the enclosing block
+    - always implicitly extends a class or implements an interface
+    - cannot be `static`
+
 ## Encapsulation
 -  It refers to the bundling of data (fields) and the methods that operate on that data within a single unit (the class).
 - provides, data hiding (private members) and controlled access (through methods like getters and setters).

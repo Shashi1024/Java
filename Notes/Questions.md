@@ -13,16 +13,29 @@
 - What is a Klass pointer?
 - Garbage Collectors detailed description
 - Code Examples for all the topics covered
+- what are effectively final Variables and why are they introduced, what do they represent?
 
 
 
+```
 today
---> Operators
---> Packages
 --> Codes
 --> Polymorphism
---> instanceOf operator
---> super
+--> Inheritance
+--> Classes and Interfaces Deep dive
+--> Abstraction
 --> final
---> Switch
---> example codes for all Topics covered till date
+```
+
+```
+Stack
+--> Operators
+--> Packages
+```
+
+
+
+IDK
+--> what happens when a java program is compiled and executed
+--> what is a process, how is it started, its lifecycle.
+--> how many classes can be nested (max depth of class nesting)
