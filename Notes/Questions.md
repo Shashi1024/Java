@@ -39,3 +39,10 @@ IDK
 --> what happens when a java program is compiled and executed
 --> what is a process, how is it started, its lifecycle.
 --> how many classes can be nested (max depth of class nesting)
+
+
+
+
+1 - Shashi
+2 - amith
+3 - abjith
