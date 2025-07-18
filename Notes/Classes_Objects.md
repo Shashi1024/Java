@@ -77,6 +77,7 @@
   - used to call the constructor of a super class
   - it must be the first statement of the constructor
   - if not explicitly called, java implicitly calls the no parameter `super()` constructor.
+  - if the superclass does not have a no-parameter constructor, `super(args)` must be invoked explicitly.(else compile-time error will occur)
 
 - we cannot use `this()` and `super()` within a same constructor.
 
@@ -146,6 +147,13 @@
 
 
 #### Immutable Classes
+- An immutable class is a class whose instances cannot be modified after they are created. Once an object of an immutable class is instantiated, its state remains constant throughout its lifetime.
+- *Characteristics (How to make a class immutable)*,
+  - declare the class as `final`
+  - declare all fields as `private` and `final`
+  - No setter Methods
+  - Initialize all fields via constructor
+  - Perform deep copy for mutable object fields --> If the class holds references to mutable objects (e.g., Date, ArrayList), you must perform a "deep copy" in the constructor and in getter methods. This means creating new instances of those mutable objects instead of just copying references, to prevent external modification of the internal state.
 
 
 #### Sealed Classes

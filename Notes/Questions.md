@@ -14,6 +14,7 @@
 - Garbage Collectors detailed description
 - Code Examples for all the topics covered
 - what are effectively final Variables and why are they introduced, what do they represent?
+- marker interface
 
 
 
@@ -22,7 +23,7 @@ today
 --> Codes
 --> Polymorphism
 --> Inheritance
---> Classes and Interfaces Deep dive
+--> Interfaces Deep dive
 --> Abstraction
 --> final
 ```
@@ -41,8 +42,3 @@ IDK
 --> how many classes can be nested (max depth of class nesting)
 
 
-
-
-3 - Shashi
-1 - amith
-2 - abjith
