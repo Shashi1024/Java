@@ -102,24 +102,24 @@
 
 
 ***`try-with-resources` (Java 7 and later)***
-    - its a syntactic sugar for automatically closing resources that implement the `java.lang.AutoCloseable` interface (eliminates the need for explicit `finally` blocks for resource management)
-    - *Syntax*
-        ```
-        try (ResourceType resource1 = new ResourceType(...);
-            ResourceType resource2 = new ResourceType(...)) {
-            // Code that uses the resources
-        } catch (ExceptionType e) {
-            // Handle exceptions
-        }
-        // Resources are automatically closed when the try block exits,
-        // whether normally or due to an exception.
-        ```
+  - its a syntactic sugar for automatically closing resources that implement the `java.lang.AutoCloseable` interface (eliminates the need for explicit `finally` blocks for resource management)
+  - *Syntax*
+    ```
+    try (ResourceType resource1 = new ResourceType(...);
+        ResourceType resource2 = new ResourceType(...)) {
+        // Code that uses the resources
+    } catch (ExceptionType e) {
+        // Handle exceptions
+    }
+    // Resources are automatically closed when the try block exits,
+    // whether normally or due to an exception.
+    ```
 
-    - Resources declared int the `try` paranthesis are initialized and then the code in `try` block is executed
+  - Resources declared int the `try` paranthesis are initialized and then the code in `try` block is executed
 
-    - *Regardless of how the `try` block exits (normally, by `return`, or by throwing an exception), the `close()` method of each resource is automatically called. Resources are closed in the reverse order of their declaration.*
+  - *Regardless of how the `try` block exits (normally, by `return`, or by throwing an exception), the `close()` method of each resource is automatically called. Resources are closed in the reverse order of their declaration.*
 
-    - If an exception occurs during resource initialization or in the `try` block,(the first and the original exception) and (now JVM will try to close the resources due to the original exception) another exception occurs during closing, the original exception is preserved (and shown in the console), and the closing exception is suppressed (can be retrieved via `Throwable.getSuppressed()`).
+  - If an exception occurs during resource initialization or in the `try` block,(the first and the original exception) and (now JVM will try to close the resources due to the original exception) another exception occurs during closing, the original exception is preserved (and shown in the console), and the closing exception is suppressed (can be retrieved via `Throwable.getSuppressed()`).
 
 
 

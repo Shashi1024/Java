@@ -3,8 +3,8 @@
 ## Inheritance
 - In Java, inheritance is a mechanism that allows one class to inherit the fields and methods of another class.
 - It represents an "is-a" relationship
-- ***Superclass***
-- ***Subclass***
+  - ***Superclass***
+  - ***Subclass***
 
 - A subclass inherits all `public` and `protected` members from its superclass. It also inherits `default` (package-private) members if the subclass is in the same package. `private` members of the superclass are inherited but are not directly accessible by the subclass, they can only be accessed indirectly via public/protected methods provided by the superclass.
 
