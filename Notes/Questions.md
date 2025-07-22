@@ -17,6 +17,10 @@
 - marker interface
 - exception chaining and re-throwing
 - more about sealed classes (they cannot be instantiated)
+- statefull and stateless
+- failsafe
+- Concurrent & Threads
+- Reflection
 
 
 ```
