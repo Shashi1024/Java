@@ -63,3 +63,9 @@
 
 #### Why Interfaces are Not Prone to the Diamond Problem?
 
+- *Interfaces define Contracts, not Implementations*
+  - If a class `C` implements two interfaces, `InterfaceA` and `InterfaceB`, and both `InterfaceA` and `InterfaceB` declare a method void `doSomething()`;, there's no ambiguity. Class `C` must provide its own single implementation for `doSomething()`. The compiler forces `C` to resolve the ambiguity by defining the method itself.
+
+- *Resolution with Default Methods*
+  - If a class `implements` two interfaces with conflicting `default` methods (same signature), the class must override that method itself. The compiler will issue an `error` if the class doesn't provide its own implementation, forcing a clear resolution.
+  - If a class inherits a `default` method from an interface and also inherits a concrete method (with the same signature) from a superclass, the class method always "wins." Class methods take precedence over interface default methods.
