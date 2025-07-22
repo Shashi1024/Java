@@ -6,32 +6,37 @@
 - It contains abstract methods (before Java 8, all methods were implicitly `public abstract`), and from Java 8 onwards, it can also contain `default` and `static` methods.
 - From Java 9, `private` methods are also allowed.
 - Interfaces define a contract: any class that implements an interface must provide an implementation for all its `abstract` methods.
+-  Interfaces achieve 100% abstraction (conceptually, before Java 8 default methods).
 
 
-- *Characteristics*,
-  - All methods declared in an interface are implicitly `public abstract` by default.
-  - Prior to Java 8, interfaces were very restrictive, allowing only abstract methods and public static final fields. 
-  - From Java 8, interfaces can have `default` methods (with implementation) and `static` methods (with implementation).
-  - From Java 9, interfaces can have `private` methods (for internal use by `default` or `static` methods).
-  - All fields (variables) in an interface are implicitly `public static final` by default. They must be initialized at the time of declaration.
-  - Interfaces cannot have constructors.
+- *Characteristics*
+- **Pre-Java 8**
+  - All methods are implicitly `public abstract`. You don't need to write `public abstract`.
+  - All fields are implicitly `public static final`. They are constants.
+  - Cannot have concrete methods.
+  - Cannot have Constructors
+  - A class implements an `interface` using the `implements` keyword.
+  - A class implementing an interface must provide implementations for all its abstract methods, or be declared `abstract` itself.
+  - A class can `implement` multiple interfaces (achieving multiple inheritance of type).
+  - An interface can `extend` multiple other interfaces.
 
-- *Introduced in Java 8*
-  - ***`default` Methods***
-    - `default` methods allow you to add new methods to an interface without breaking existing classes that implement that interface.
-    - they provide default implementation which can be used directly or can be overridden
-    - implicitly public
-    
-  - ***`Static` Methods***
-    - `static` methods in interfaces are utility methods that belong to the interface itself, not to any implementing class instance.
-    - implicitly public
-    - cannot be overridden by implementing classes.
-    - They are called directly using the interface name (e.g., `InterfaceName.staticMethod()`).
+- **Java 8**
+  - `default` Methods --> These are methods with an implementation provided directly within the interface (using `default` keyword). these methods can be overridden by the subclasses.
+  - `static` Methods --> These are methods that belong to the interface itself, not to any implementing object. They are called using the interface name.
 
-- ***`private` methods (Introduced in Java 9)***
-  - `private` methods can be used within an interface to share common code between `default` and `static` methods.
-  - They cannot be abstract.
-  - not accessible from outside the interface.
+- **Java 9+**
+  - `private` Methods -->  These are helper methods that can be used by `default` or `static` methods within the interface itself. They cannot be called from outside the interface.
+
+**Current Characteristics**
+  - `interface` keyword to define an interface
+  - can have abstract methods (implicitly `public abstract`)
+  - can have concrete `default` methods
+  - can have concrete `private` methods
+  - can only have `public static final` fields
+  - cannot have constructors
+  - `implement` for classes and `extend` for interfaces
+
+
 
 
 
@@ -57,3 +62,4 @@
 
 
 #### Why Interfaces are Not Prone to the Diamond Problem?
+

@@ -18,10 +18,13 @@
   - A class extending an abstract class must implement all its abstract methods, or it must also be declared `abstract`.
   - They can have instance variables and static variables.
 
--  If a class has at least one `abstract` method, the class itself must be declared `abstract`.
+- If a class has at least one `abstract` method, the class itself must be declared `abstract`.
 - If a concrete class extends an abstract class, it must implement all the abstract methods of the parent abstract class. If it doesn't, it must also be declared abstract.
 - Abstract classes can have final methods (which cannot be overridden) and static methods.
 - They can have public, protected, default, and private access modifiers for their members.
+- `final` Methods: An abstract class can have `final` methods. A `final` method cannot be overridden by subclasses.
+- `static` Methods: An abstract class can have `static` methods. These methods belong to the class itself and can be called using the class name.
+
 
 
 
@@ -38,3 +41,4 @@
   - From Java 9, interfaces can have `private` methods (for internal use by `default` or `static` methods).
   - All fields (variables) in an interface are implicitly `public static final` by default. They must be initialized at the time of declaration.
   - Interfaces cannot have constructors.
+
