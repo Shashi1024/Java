@@ -124,32 +124,32 @@
 
 
 ***`throw` keyword***
-    - used to explicitly throw an exception from a method.
-    - *Syntax*: `throw new ExceptionType("message");`
-    - when `throw` is executed, the normal flow of execution stops and JVM tries to find the relevant `catch` block
+  - used to explicitly throw an exception from a method.
+  - *Syntax*: `throw new ExceptionType("message");`
+  - when `throw` is executed, the normal flow of execution stops and JVM tries to find the relevant `catch` block
 
 
 ***`throws` keyword***
-    - used in a method signature to declare that a method might throw one or more checked exceptions.
-    - It essentially delegates the responsibility of handling that exception to the calling method. (it informs the callers of a method about the checked exceptions they need to handle)
-    - *Syntax*
-        ```
-        returnType methodName(parameters) throws ExceptionType1, ExceptionType2 {
-            // Method body that might throw ExceptionType1 or ExceptionType2
-        }
-        ```
+  - used in a method signature to declare that a method might throw one or more checked exceptions.
+  - It essentially delegates the responsibility of handling that exception to the calling method. (it informs the callers of a method about the checked exceptions they need to handle)
+  - *Syntax*
+    ```
+    returnType methodName(parameters) throws ExceptionType1, ExceptionType2 {
+        // Method body that might throw ExceptionType1 or ExceptionType2
+    }
+    ```
 
-    - **Rule** --> If a method calls another method that declares a checked exception with throws, the calling method must either:,
-        - Handle the exception using `try-catch`.
-        - Declare the exception itself using `throws`.
+  - **Rule** --> If a method calls another method that declares a checked exception with throws, the calling method must either:,
+    - Handle the exception using `try-catch`.
+    - Declare the exception itself using `throws`.
 
 
 ***Custom (User-defined) Exceptions***
-    - custom exception classes can be created to represent specific error conditions.
-    - **How to create**,
-        - extend `java.lang.Exception` for checked custom Exceptions
-        - Extend `java.lang.RuntimeException` for unchecked custom exceptions.
-        - exception names usually end with `Exception` (just a convention)
+  - custom exception classes can be created to represent specific error conditions.
+  - **How to create**,
+    - extend `java.lang.Exception` for checked custom Exceptions
+    - Extend `java.lang.RuntimeException` for unchecked custom exceptions.
+    - exception names usually end with `Exception` (just a convention)
 
 
 
