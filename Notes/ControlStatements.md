@@ -2,7 +2,7 @@
 
 ## Control Flow Statements
 
-- **Conditional (Decision-Making) Statements**
+### Conditional (Decision-Making) Statements
   - These statements allow your program to choose different paths of execution based on whether a specified boolean condition evaluates to `true` or `false`.
 
   - *Statements*,
@@ -12,7 +12,7 @@
     - ***`Switch` Statement***
 
 
-### `Switch` Statement
+#### `Switch` Statement
 - The `switch` statement allows you to select one of many code blocks to be executed.
 - ***Pre-Java 12***
     - *Supported Types* --> The `switch` expression can be of type `byte`, `short`, `char`, `int`, `String` (since Java 7), `enum`, or their corresponding wrapper classes (`Byte`, `Short`, `Character`, `Integer`). `long`, `float`, `double`, and `boolean` are not supported.
@@ -67,7 +67,7 @@
 
 ---
 
-- **Looping (Iterative) Statements**
+### Looping (Iterative) Statements
   - These statements allow a block of code to be executed repeatedly as long as a certain condition remains `true`.
   - *Statements*,
     - ***`for` Loop***
@@ -83,7 +83,7 @@
 
 ---
 
-- **Branching (Jump) Statements**
+### Branching (Jump) Statements
   - These statements allow you to transfer control to a different part of your program, typically within loops or `switch` statements.
   - *Statements*,
     - ***`break` Statement*** --> terminates the innermost Loop. inside `switch` prevents "fall-through" to the next `case`
