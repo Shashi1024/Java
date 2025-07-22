@@ -15,7 +15,8 @@
 - Code Examples for all the topics covered
 - what are effectively final Variables and why are they introduced, what do they represent?
 - marker interface
-
+- exception chaining and re-throwing
+- more about sealed classes (they cannot be instantiated)
 
 
 ```

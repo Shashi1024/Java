@@ -102,49 +102,69 @@
 
 
 ***`try-with-resources` (Java 7 and later)***
-- its a syntactic sugar for automatically closing resources that implement the `java.lang.AutoCloseable` interface (eliminates the need for explicit `finally` blocks for resource management)
-- *Syntax*
-    ```
-    try (ResourceType resource1 = new ResourceType(...);
-        ResourceType resource2 = new ResourceType(...)) {
-        // Code that uses the resources
-    } catch (ExceptionType e) {
-        // Handle exceptions
-    }
-    // Resources are automatically closed when the try block exits,
-    // whether normally or due to an exception.
-    ```
+    - its a syntactic sugar for automatically closing resources that implement the `java.lang.AutoCloseable` interface (eliminates the need for explicit `finally` blocks for resource management)
+    - *Syntax*
+        ```
+        try (ResourceType resource1 = new ResourceType(...);
+            ResourceType resource2 = new ResourceType(...)) {
+            // Code that uses the resources
+        } catch (ExceptionType e) {
+            // Handle exceptions
+        }
+        // Resources are automatically closed when the try block exits,
+        // whether normally or due to an exception.
+        ```
 
-- Resources declared int the `try` paranthesis are initialized and then the code in `try` block is executed
+    - Resources declared int the `try` paranthesis are initialized and then the code in `try` block is executed
 
-- *Regardless of how the `try` block exits (normally, by `return`, or by throwing an exception), the `close()` method of each resource is automatically called. Resources are closed in the reverse order of their declaration.*
+    - *Regardless of how the `try` block exits (normally, by `return`, or by throwing an exception), the `close()` method of each resource is automatically called. Resources are closed in the reverse order of their declaration.*
 
-- If an exception occurs during resource initialization or in the `try` block,(the first and the original exception) and (now JVM will try to close the resources due to the original exception) another exception occurs during closing, the original exception is preserved (and shown in the console), and the closing exception is suppressed (can be retrieved via `Throwable.getSuppressed()`).
+    - If an exception occurs during resource initialization or in the `try` block,(the first and the original exception) and (now JVM will try to close the resources due to the original exception) another exception occurs during closing, the original exception is preserved (and shown in the console), and the closing exception is suppressed (can be retrieved via `Throwable.getSuppressed()`).
 
 
 
 ***`throw` keyword***
-- used to explicitly throw an exception from a method.
-- *Syntax*: `throw new ExceptionType("message");`
-- when `throw` is executed, the normal flow of execution stops and JVM tries to find the relevant `catch` block
+    - used to explicitly throw an exception from a method.
+    - *Syntax*: `throw new ExceptionType("message");`
+    - when `throw` is executed, the normal flow of execution stops and JVM tries to find the relevant `catch` block
 
 
 ***`throws` keyword***
-- used in a method signature to declare that a method might throw one or more checked exceptions.
-- It essentially delegates the responsibility of handling that exception to the calling method. (it informs the callers of a method about the checked exceptions they need to handle)
-- *Syntax*
-    ```
-    returnType methodName(parameters) throws ExceptionType1, ExceptionType2 {
-        // Method body that might throw ExceptionType1 or ExceptionType2
-    }
-    ```
+    - used in a method signature to declare that a method might throw one or more checked exceptions.
+    - It essentially delegates the responsibility of handling that exception to the calling method. (it informs the callers of a method about the checked exceptions they need to handle)
+    - *Syntax*
+        ```
+        returnType methodName(parameters) throws ExceptionType1, ExceptionType2 {
+            // Method body that might throw ExceptionType1 or ExceptionType2
+        }
+        ```
 
-- **Rule** --> If a method calls another method that declares a checked exception with throws, the calling method must either:,
-- Handle the exception using `try-catch`.
-- Declare the exception itself using `throws`.
+    - **Rule** --> If a method calls another method that declares a checked exception with throws, the calling method must either:,
+        - Handle the exception using `try-catch`.
+        - Declare the exception itself using `throws`.
 
 
 ***Custom (User-defined) Exceptions***
-  - 
+    - custom exception classes can be created to represent specific error conditions.
+    - **How to create**,
+        - extend `java.lang.Exception` for checked custom Exceptions
+        - Extend `java.lang.RuntimeException` for unchecked custom exceptions.
+        - exception names usually end with `Exception` (just a convention)
 
 
+
+#### JVM's Role in Exception Handling
+
+- ***Exception Object Creation*** --> when an exception occurs, the JVM creates an instance of the corresponding exception class.
+
+- ***Stack Unwinding***,
+  - When an exception is thrown, the JVM starts "unwinding" the call stack. It pops method call frames from the stack one by one, starting from the method where the exception occurred.
+  - For each method frame, it checks if there's a `catch` block that can handle the exception type.
+  - If a matching `catch` block is found, the unwinding stops, and control is transferred to that `catch` block.
+  - If no `catch` block is found throughout the entire call stack, the JVM terminates the program and prints the exception's stack trace to the console.
+
+- ***`finally` Block Execution*** --> During stack unwinding, if a finally block is encountered in any method frame, it is executed before the frame is popped, ensuring cleanup.
+
+- ***Program Counter (PC) Register*** --> The PC register is updated to point to the appropriate bytecode instruction in the `catch` block or the instruction after the `try-catch-finally` block, or to an instruction that initiates further stack unwinding.
+
+- ***Exception Table*** --> During compilation, the Java compiler generates an "exception table" (or "exception handler table") within the .class file for each method. This table contains entries that map ranges of bytecode instructions to the catch blocks that handle exceptions thrown within those ranges. The JVM uses this table during runtime to quickly locate the appropriate exception handler.
