@@ -7,6 +7,27 @@
 ![Collection Framework Hierarchy](../can/collections.jpg "Collection Framework Hierarchy")
 
 
+### `Iterable` Interface (`java.lang.Iterable`) (Java 5+)
+- The `Iterable` interface is a single-method interface (making it a functional interface from Java 8, though not typically used with lambdas directly for its primary purpose). 
+- It defines only one abstract method:
+  ```
+  public interface Iterable<T> {
+      Iterator<T> iterator();
+  }
+  ```
+  - `iterator()` method --> This method returns an `Iterator` over elements of type `T`.
+
+- Any class that implements the Iterable interface promises that it can provide an Iterator for its elements.(signify that an object is a collection of elements that can be traversed.)
+- The most common and significant use of the Iterable interface is its direct support for the for-each-loop.
+
+- **Methods Added to `Iterable` in Java 8**
+  - With the introduction of `default` methods in interfaces in Java 8, the `Iterable` interface gained two new methods:
+    - `forEach(Consumer<? super T> action)` --> This is a `default` method that performs the given action for each element of the `Iterable` until all elements have been processed or the action throws an exception.
+    - `spliterator()` --> a specialized Iterator for traversing and partitioning elements of a source. It's primarily used internally by the Java Streams API to enable parallel processing.
+
+- we can make custom custom data structures iterable by implementing `Iterable` interface.
+
+
 ### `Collection<E>` Interface (The Root Interface)
 - The most general interface in the collection hierarchy. It represents a group of objects, known as its elements.
 - *Characteristics*,
@@ -52,6 +73,9 @@
   - *Underlying Data Structure* --> Resizable array.
   - *Performance* --> similar to `ArrayList`, but generally slower due to synchronization overhead
   - Synchronized --> all methods are Synchronized (thread safe)
+
+  - `Stack`(legacy) extends `Vector` and provides common stack methods (all methods are synchronized)
+  - Stack can be created using `Deque` (preffered)
 
 
 
@@ -242,12 +266,18 @@
   - Adding elements (`add(E e)`).
   - Getting indices (`nextIndex()`, `previousIndex()`).
 
+- An `Iterator` is a one-time use object. Once you iterate through a collection using an `Iterator`, you generally cannot reset it to the beginning. To iterate again, you need to obtain a new `Iterator` from the `Iterable` object.
+- `Iterator` provides a way to remove elements from the underlying collection safely during iteration (using `remove()`), which is not possible directly with the enhanced for-loop. Modifying a collection while iterating over it using an enhanced for-loop (or a traditional `for` loop that relies on index) can lead to `ConcurrentModificationException`.
+
+
 
 
 
 ### Generics: Type Safety in Collections (Java 5+)
 - allow you to specify the type of objects that a collection can hold.
 - This provides **compile-time type safety** and eliminates the need for explicit type casting, preventing `ClassCastExceptions` at runtime.
+
+- *For more info refer Generics --> [Generics](generics.md)*
 
 
 
@@ -268,23 +298,12 @@
     - can be a performance bottleneck, due to coarse-grained locking (the entire collection is locked for every operation).
 
   - **Concurrent Collections (from `java.util.concurrent`)**
-    - 
+    - These classes are designed for high-performance concurrent access.
+    - They use more sophisticated concurrency control mechanisms (like fine-grained locking, lock-free algorithms, or optimistic concurrency) to provide better scalability than synchronized wrappers.
 
+    - `ConcurrentHashMap` --> A highly scalable, thread-safe alternative to HashMap and Hashtable.
+    - `CopyOnWriteArrayList` --> A thread-safe List implementation where all mutative operations (add, set, remove, etc.) are implemented by making a fresh copy of the underlying array. Reads are very fast as they don't require locking. Suitable for lists that are frequently read but rarely modified.
+    - `CopyOnWriteArraySet` --> A thread-safe Set implementation backed by CopyOnWriteArrayList.
+    - `ConcurrentLinkedQueue` --> A thread-safe, unbounded, non-blocking FIFO queue.
+    - `BlockingQueue` implementations --> (e.g., `ArrayBlockingQueue`, `LinkedBlockingQueue`) Support blocking operations when the queue is full or empty, useful for producer-consumer patterns.
 
-
-
-
-
-Concurrent Collections (from java.util.concurrent):
-
-These classes are designed for high-performance concurrent access. They use more sophisticated concurrency control mechanisms (like fine-grained locking, lock-free algorithms, or optimistic concurrency) to provide better scalability than synchronized wrappers.
-
-ConcurrentHashMap: A highly scalable, thread-safe alternative to HashMap and Hashtable.
-
-CopyOnWriteArrayList: A thread-safe List implementation where all mutative operations (add, set, remove, etc.) are implemented by making a fresh copy of the underlying array. Reads are very fast as they don't require locking. Suitable for lists that are frequently read but rarely modified.
-
-CopyOnWriteArraySet: A thread-safe Set implementation backed by CopyOnWriteArrayList.
-
-ConcurrentLinkedQueue: A thread-safe, unbounded, non-blocking FIFO queue.
-
-BlockingQueue implementations: (e.g., ArrayBlockingQueue, LinkedBlockingQueue) Support blocking operations when the queue is full or empty, useful for producer-consumer patterns.

@@ -4,7 +4,7 @@
 - What are functional Interfaces?
 - What is Reflection?
 - String, Builder, Buffer Under the Hood?
-- Switch evolution from java 8 to 21?
+- Switch evolution from java 8 to 21 (along with codes for each version)?
 - String Pool, java 21?
 - What are inner classes, static inner, final classes, abstract and how are they processed?
 - break and continue in detail (using annotations)

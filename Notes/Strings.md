@@ -12,15 +12,17 @@
       - when a string is created using double quotes, java first checks the String Pool, to see if a String object with same contents already exists.
     
     - ***Using `new` keyword***
-      - when the `new` operator is used, a new `String` object is always created in the Heap Memory, even if an identical `String` literal already exists in the String Pool.
+      - when the `new` operator is used, a new `String` object is always created in the Heap Memory, even if an identical `String` literal already exists in the String Pool. (if a string literal is used in the declaration/definition it will also be added to the String Pool)
 
 
 - ***String Memory Management (String Pool)***
   - also known as String Constant Pool, is a special area within the JVMs Heap
   - its purpose is to store unique `String` literals to save memory.
+  - it is implemented used `Hash Table` or `Hash Set`
 
     - **Location of String Pool**
       - *Java 6 & earlier* --> String Pool was part of the **PermGen** (Permanent Generation) space of the Method Area. PermGen had a fixed size, which could lead to `OutOfMemoryError: PermGen space` if too many unique strings were interned.
+      > PermGen was a fixed-size memory area that stored metadata about classes and methods, as well as interned strings.
 
       - *Java 7* -->  The String Pool was moved to the main **Heap space**. This made it eligible for garbage collection and allowed it to grow dynamically, reducing PermGen-related `OutOfMemoryErrors`.
 
@@ -81,3 +83,11 @@
     - ***`StringBuilder` (Newer, Non-Synchronized, Faster)***
       - *Not thread-safe* --> Its methods are not `synchronized`. If multiple threads try to modify the same `StringBuilder` instance concurrently without external `synchronization`, it can lead to data corruption, unexpected behavior, or a `ConcurrentModificationException` (a race condition).
       - *Performance*: Generally faster than `StringBuffer` because it avoids the `synchronization` overhead.
+
+
+
+
+
+- Buffer and Builder (Behaviour on my device)
+  - initial capacity (when length is 0): 16
+  - the capacity is getting incremented everytime the length is increased (if length=1 then capacity=17 ...)
