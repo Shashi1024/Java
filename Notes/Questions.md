@@ -64,3 +64,4 @@ today
 - mutable immutable
 - 'has a' 'is a' relationship
 - garbage collection
+- bidirectional functional interface

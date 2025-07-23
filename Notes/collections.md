@@ -208,12 +208,12 @@
 - It contains polymorphic algorithms that operate on collections, "wrappers", which return a new collection backed by a specified collection, and a few other odds and ends.
 
 - *Key Methods*
-  - **Sorting**
-  - **Searcing**
-  - **Shuffling**
-  - **Reversing**
-  - **Frequency/Disjoint**
-  - **Thread-Safe Wrappers**
+  - **Sorting** --> `sort(List<T> list)` (uses natural ordering), `sort(List<T> list, Comparator<? super T> c)` (uses custom comparator).
+  - **Searcing** --> `binarySearch(List<? extends Comparable<T>> list, T key)` (list must be sorted).
+  - **Shuffling** --> `shuffle(List<?> list)`
+  - **Reversing** --> `reverse(List<?> list)`
+  - **Frequency/Disjoint** --> `frequency(Collection<?> c, Object o)`, `disjoint(Collection<?> c1, Collection<?> c2)`.
+  - **Thread-Safe Wrappers** --> `synchronizedList()`, `synchronizedSet()`, `synchronizedMap()`, etc. (e.g., `List<String> syncList = Collections.synchronizedList(new ArrayList<>());`). These provide basic synchronization for non-thread-safe collections.
 
 
 ***`java.util.Arrays`***
@@ -225,3 +225,66 @@
   - `copyOf(original, newLength)` --> Copies an array.
   - `asList(T... a)` --> Returns a fixed-size List backed by the specified array. (Modifying this list directly modifies the array).
   - `deepEquals(Object[] a1, Object[] a2)` --> Compares two arrays for deep equality.
+
+
+
+
+
+### Iterators (Traversing Collections)
+- An `Iterator` is an object that enables you to traverse a collection and remove elements during iteration. 
+- provides a standard way to access elements sequentially without exposing the underlying structure of the collection.
+
+- *Key Methods* --> `boolean hasNext()`, `E next()`, `void remove()`, . . . 
+
+- `ListIterator<E>` --> A sub-interface of Iterator specifically for Lists. It provides additional functionality,
+  - Bidirectional traversal (`hasPrevious()`, `previous()`).
+  - Modifying elements (`set(E e)`).
+  - Adding elements (`add(E e)`).
+  - Getting indices (`nextIndex()`, `previousIndex()`).
+
+
+
+
+### Generics: Type Safety in Collections (Java 5+)
+- allow you to specify the type of objects that a collection can hold.
+- This provides **compile-time type safety** and eliminates the need for explicit type casting, preventing `ClassCastExceptions` at runtime.
+
+
+
+
+
+### Concurrency in Collections
+
+- The default implementations of collections (`ArrayList`, `HashMap`, `HashSet`, `LinkedList`, `TreeMap`, `TreeSet`, `ArrayDeque`, `PriorityQueue`) are not thread-safe.
+- If multiple threads access and modify these collections concurrently without external synchronization, it can lead to data corruption or `ConcurrentModificationException`.
+
+- *approaches for thread-safe collections:*
+  - **Synchronized Wrappers (from `java.util.Collections`)**
+    - `Collections.synchronizedList(List<T> list)`
+    - `Collections.synchronizedSet(Set<T> s)`
+    - `Collections.synchronizedMap(Map<K, V> m)`
+    
+    - These methods return a synchronized (thread-safe) wrapper around an existing non-synchronized collection. Every method call to the wrapper is synchronized.
+    - can be a performance bottleneck, due to coarse-grained locking (the entire collection is locked for every operation).
+
+  - **Concurrent Collections (from `java.util.concurrent`)**
+    - 
+
+
+
+
+
+
+Concurrent Collections (from java.util.concurrent):
+
+These classes are designed for high-performance concurrent access. They use more sophisticated concurrency control mechanisms (like fine-grained locking, lock-free algorithms, or optimistic concurrency) to provide better scalability than synchronized wrappers.
+
+ConcurrentHashMap: A highly scalable, thread-safe alternative to HashMap and Hashtable.
+
+CopyOnWriteArrayList: A thread-safe List implementation where all mutative operations (add, set, remove, etc.) are implemented by making a fresh copy of the underlying array. Reads are very fast as they don't require locking. Suitable for lists that are frequently read but rarely modified.
+
+CopyOnWriteArraySet: A thread-safe Set implementation backed by CopyOnWriteArrayList.
+
+ConcurrentLinkedQueue: A thread-safe, unbounded, non-blocking FIFO queue.
+
+BlockingQueue implementations: (e.g., ArrayBlockingQueue, LinkedBlockingQueue) Support blocking operations when the queue is full or empty, useful for producer-consumer patterns.
