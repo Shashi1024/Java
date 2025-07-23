@@ -22,6 +22,7 @@
 - Concurrent & Threads
 - Reflection
 - Generics
+- Anonymous inner class
 
 
 
@@ -49,3 +50,17 @@ IDK
 --> how many classes can be nested (max depth of class nesting)
 
 
+
+
+
+today
+- this keyword (where is it used other than the ones we covered)
+- JVM architecture in detail explanation
+- String pool internal implementation
+- static Keyword
+- enum 5 types
+- exception handling in different scnenatios (inner classes, overriding, overloading, functional interfaces) (create different types of custom exceptions and use them in different scenarios)
+- collections (initial sizes, how are they increased, how is a map stored)
+- mutable immutable
+- 'has a' 'is a' relationship
+- garbage collection

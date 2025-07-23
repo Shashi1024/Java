@@ -32,3 +32,17 @@ DSA
 - Graphs
 - Greedy
 - Dynamic Programming
+
+
+
+Mandatory
+--> Strong OOPs
+--> Strong Data Structures and Analysis of algorithms
+--> OS
+
+Basic Knowledge
+--> CN
+--> Cloud Computing
+--> python
+--> testing (types of testing, tools used, importance, ...)
+--> SDLC

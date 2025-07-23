@@ -110,9 +110,38 @@
 
 ### `Deque<E>` Interface (Double-Ended Queue)
 - Represents a double-ended queue, which supports element insertion and removal at both ends.
+- it extends `Queue`
 - *Characteristics* --> Can be used as a FIFO queue or a LIFO (Last-In, First-Out) stack.
 
 - *Methods* --> `void addFirst(E e)`, `void addLast(E e)`, `E removeFirst()`, `E removeLast()`, `E peekFirst()`, `E peekLast()`, `push()`, `pop()`, . . .
+
+
+***`Queue` and `Deque` Implementations***
+
+- **`PriorityQueue<E>`**
+  - *Underlying Data Structure* --> Min-heap (a binary heap).
+  - *Characteristics*
+    - Elements are ordered according to their natural ordering or by a Comparator provided at queue construction time. 
+    - The head of the queue is the least element. 
+    - Not strictly FIFO.
+
+  - *Performance*
+    - `offer()`, `poll()`, `peek()` : O(log N).
+  
+  - Non-Synchronized --> Not Thread Safe
+
+
+- **`ArrayDeque<E>`**
+  - *Underlying Data Structure* --> Resizable array.
+  - *Characteristics*
+    - Can function as both a Queue (FIFO) and a Deque (double-ended queue/stack). 
+    - More efficient than LinkedList when used as a stack or queue.
+  
+  - *Performance*
+    - `addFirst()`, `addLast()`, `removeFirst()`, `removeLast()` : amortized O(1).
+
+  - Non-Synchronized --> Not Thread Safe
+
 
 ---
 
@@ -130,3 +159,69 @@
 
 - **`HashMap<K, V>`**
   - *Underlying Data Structure* --> Hash table.
+  - *Performance*,
+    - `put()` / `get()` / `remove()` / `containsKey()` --> O(1) on average, assuming a good hash function and minimal collisions. Can degrade to O(N) in worst-case collision scenarios.
+
+  - *Characteristics*,
+    - Does not Guarantee Insertion Order.
+    - Allows one `null` key and multiple `null` values.
+
+  - Non-Synchronized --> Not Thread Safe
+
+
+-**`LinkedHashMap<K, V>`**
+  - *Underlying Data Structure* --> Hash table with a doubly-linked list running through its entries.
+  - *Performance* --> Similar to `HashMap` (O(1) average for basic operations).
+
+  - *Characteristics*
+    - Maintains Insertion order
+    - can be configured to maintain access order (useful for LRU caches)
+
+  - Non-Synchronized --> Not Thread Safe
+
+- **`TreeMap<K, V>`**
+  - *Underlying Data Structure* --> Red-Black Tree.
+  - *Performance*
+    - `put()` / `get()` / `remove()` / `containsKey()`: O(log N).
+
+  - *Characteristics*
+    - Stores entries in sorted order based on the natural order of keys or a custom Comparator. 
+    - Does not allow null keys.
+
+  - Non-Synchronized --> Not Thread Safe
+
+- **`Hashtable<K, V>` (Legacy)**
+  - *Underlying Data Structure* --> Hash table.
+  - *Performance* --> Similar to `HashMap`, but generally slower due to synchronization overhead.
+  - Synchronized --> all methods are synchronized (thread safe)
+  - *Characteristics*
+    - does not allow `null` values or `null` keys
+
+
+
+### Utility Classes: `Collections` and `Arrays`
+
+- The Java Collections Framework provides utility classes with static methods to perform common operations on collections and arrays.
+
+***`java.util.Collections`***
+- Provides static methods that operate on or return collections.
+- It contains polymorphic algorithms that operate on collections, "wrappers", which return a new collection backed by a specified collection, and a few other odds and ends.
+
+- *Key Methods*
+  - **Sorting**
+  - **Searcing**
+  - **Shuffling**
+  - **Reversing**
+  - **Frequency/Disjoint**
+  - **Thread-Safe Wrappers**
+
+
+***`java.util.Arrays`***
+- Provides static methods to manipulate arrays.
+
+- *Key Methods*
+  - `sort(array)` --> Sorts an array.
+  - `binarySearch(array, key)` --> searches for an element
+  - `copyOf(original, newLength)` --> Copies an array.
+  - `asList(T... a)` --> Returns a fixed-size List backed by the specified array. (Modifying this list directly modifies the array).
+  - `deepEquals(Object[] a1, Object[] a2)` --> Compares two arrays for deep equality.

@@ -58,7 +58,7 @@
 
 ***Serialization with `Externalizable` Interface***
 
-- While Serializable provides automatic serialization, the java.io.Externalizable interface offers greater control over the serialization process.
+- While Serializable provides automatic serialization, the `java.io.Externalizable` interface offers greater control over the serialization process.
 - It is also a marker interface, but it requires the implementing class to provide concrete implementations for two methods:
   - `void writeExternal(ObjectOutput out) throws IOException;`
   - `void readExternal(ObjectInput in) throws IOException, ClassNotFoundException;`
