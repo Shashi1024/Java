@@ -21,6 +21,8 @@
 - failsafe
 - Concurrent & Threads
 - Reflection
+- Generics
+
 
 
 ```

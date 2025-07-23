@@ -1,0 +1,7 @@
+{
+    "java.project.sourcePaths": [
+        ".",
+        "temp"
+    ],
+    "java.project.referencedLibraries": []
+}
