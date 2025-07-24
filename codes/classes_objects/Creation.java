@@ -1,4 +1,6 @@
-public class Sample{
+package codes.classes_objects;
+
+public class Creation{
     int a ;
     static int x;
     public static void main(String [] args){
