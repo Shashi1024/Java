@@ -36,6 +36,12 @@
 
 ---
 
+> **Inheritance**\
+> *Topics : Inheritance*\
+> *Link --> [Notes](Notes/Inheritance.md)*
+
+---
+
 > **Abstraction**\
 > *Topics : Abstraction, Abstract Classes, Interfaces*\
 > *Link --> [Notes](Notes/Abstraction.md)*
