@@ -1,4 +1,7 @@
 *Topics --> Generics, . . .*
+*Link to Codes --> [Codes](../codes/keywords/)*
+
+codes\collections\Generics.java
 
 ## Generics
 - introduced in Java 5

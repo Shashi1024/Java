@@ -168,3 +168,34 @@
 - ***Program Counter (PC) Register*** --> The PC register is updated to point to the appropriate bytecode instruction in the `catch` block or the instruction after the `try-catch-finally` block, or to an instruction that initiates further stack unwinding.
 
 - ***Exception Table*** --> During compilation, the Java compiler generates an "exception table" (or "exception handler table") within the .class file for each method. This table contains entries that map ranges of bytecode instructions to the catch blocks that handle exceptions thrown within those ranges. The JVM uses this table during runtime to quickly locate the appropriate exception handler.
+
+
+
+---
+
+
+### Exception Handling with Method Overriding
+- there are specific rules regarding checked exceptions that the overriding method can throw. 
+- These rules are part of Java's covariant return type and exception handling contract.
+
+- *Rules*
+  - The overriding method in the subclass **cannot throw a broader (more general) checked exception** than the overridden method in the superclass.
+  - The overriding method **can throw a narrower (more specific) checked exception** than the overridden method.
+  - The overriding method **can throw no checked exceptions** even if the overridden method declares them.
+  - Overriding methods **cannot throw new checked exceptions** that are not declared by the overridden method (unless they are subclasses of exceptions already declared).
+
+
+
+-  These rules do not apply to unchecked exceptions (`RuntimeException` and its subclasses). An overriding method can throw any unchecked exception, regardless of what the superclass method declares.
+
+
+
+
+### Exception Handling with Functional Interfaces and Lambdas
+- Exception handling within lambdas has some specific considerations.
+- **Checked Exceptions in Lambdas**
+  - If a lambda expression's body can throw a checked exception, and the functional interface's abstract method signature does not declare that exception, it will result in a **compile-time error**.
+  - we must either,
+    - Handle the checked exception inside the lambda using `try-catch`.
+    - Use a functional interface whose abstract method does declare the checked exception (e.g., `java.io.Callable` throws `Exception`, `java.util.function.Consumer` does not).
+    - Wrap the checked exception in an unchecked exception (`RuntimeException`).

@@ -1,4 +1,6 @@
 *Topics: Strings, String Pool, String Builder, String Buffer, ...*
+*Link to Codes --> [Codes](../codes/strings/)*
+
 
 ## Strings
 - not a primitive Data Type, a reference type, represents sequence of characters
