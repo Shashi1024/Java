@@ -11,7 +11,7 @@
 
 ### `this` Keyword
 
-*Link to Codes --> [Codes](../codes/keywords/ThisKeyword.java)*
+> *Link to Codes --> [Codes](../codes/keywords/ThisKeyword.java)*
 
 - The primary purpose of `this` is to resolve ambiguity between instance variables and local variables (or method parameters) that have the same name.
 
@@ -53,7 +53,7 @@
 
 ### `static` Keyword
 
-*Link to Codes --> [Codes](../codes/keywords/ThisKeyword.java)*
+*Link to Codes --> [Codes](../codes/keywords/StaticKeyword.java)*
 
 - it is a non-access modifier
 - It signifies that a member belongs to the class itself, rather than to any specific instance of that class

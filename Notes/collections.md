@@ -1,4 +1,5 @@
-*Topics --> Collection Framework, . . .*
+> *Topics --> Collection Framework, . . .*\
+> *Link to Codes --> [Codes](../codes/collections/)*
 
 ## Collection Framework
 - A set of interfaces and classes that implement commonly reusable collection data structures.
