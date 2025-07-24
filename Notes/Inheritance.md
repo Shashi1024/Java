@@ -30,7 +30,7 @@
     - This usually happens when a child class inherits from two or more classes which in turn inherit from a common ancestor.
 
 - **MUltiple Inheritance an be achieved using Interfaces**
-  - Refer Interfaces : *Link --> [Notes](Interface.md)*
+  - Refer Interfaces : *Link --> [Notes](Interfaces.md)*
 
 - **Method Overriding in Inheritance (Runtime Polymorphism)**
   - Refer Polymorphism : *Link --> [Notes](Polymorphism.md)*
