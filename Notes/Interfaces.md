@@ -1,5 +1,5 @@
 > *Topics --> Interfaces, . . .*\
-> *Link to Codes --> [Codes](../codes/collections/)*
+> *Link to Codes --> [Codes](../codes/Interfaces/)*
 
 
 
