@@ -1,5 +1,5 @@
 > *Topics --> Enum, Implementation, . . .*\
-> *Link to Codes --> [Codes](../codes/collections/)*
+> *Link to Codes --> [Codes](../codes/Enum/)*
 
 
 

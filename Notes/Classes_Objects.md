@@ -1,5 +1,5 @@
 > *Topics --> Classes and Objects, Instance Initializers, Constructors, Types of Classes(static, local, final, sealed, inner)...*\
-> *Link to Codes --> [Codes](../codes/collections/)*
+> *Link to Codes --> [Codes](../codes/Classes&Objects/)*
 
 
 

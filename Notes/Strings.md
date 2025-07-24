@@ -1,5 +1,5 @@
 > *Topics --> Strings, String Pool, String Builder, String Buffer, . . .*\
-> *Link to Codes --> [Codes](../codes/strings/)*
+> *Link to Codes --> [Codes](../codes/Strings/)*
 
 
 ## Strings

@@ -1,5 +1,5 @@
 > *Topics: Inheritance, . . .*\
-> *Link to Codes --> [Codes](../codes/collections/)*
+> *Link to Codes --> [Codes](../codes/)*
 
 
 

@@ -1,5 +1,5 @@
 > *Topics : Memory Allocation,...*\
-> *Link to Codes --> [Codes](../codes/collections/)*
+> *Link to Codes --> [Codes](../codes/)*
 
 
 

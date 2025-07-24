@@ -1,5 +1,5 @@
 > *Topics --> Hierarchy, Types, Handling Mechanisms, Special Cases, . . .*\
-> *Link to Codes --> [Codes](../codes/collections/)*
+> *Link to Codes --> [Codes](../codes/ExceptionHandling/)*
 
 
 

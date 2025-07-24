@@ -1,5 +1,5 @@
 > *Topics --> I/O, Files, Streams, . . .*
-> *Link to Codes --> [Codes](../codes/collections/)*
+> *Link to Codes --> [Codes](../codes/IO/)*
 
 
 

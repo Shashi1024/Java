@@ -1,5 +1,5 @@
 > *Topics: Polymorphism (Compile-time, Runtime), . . .*\
-> *Link to Codes --> [Codes](../codes/collections/)*
+> *Link to Codes --> [Codes](../codes/)*
 
 
 
