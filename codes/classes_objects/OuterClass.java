@@ -1,4 +1,4 @@
-package codes.classes_objects;
+package Codes.classes_objects;
 
 public class OuterClass {
     private String outerMessage = "Hello from OuterClass!";

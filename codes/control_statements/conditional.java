@@ -1,4 +1,4 @@
-package codes.control_statements;
+package Codes.control_statements;
 
 // Demonstrates conditional (decision-making) statements:
 // if, if-else, if-else-if ladder, and switch (both old and new syntax).

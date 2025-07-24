@@ -1,4 +1,4 @@
-package codes.control_statements;
+package Codes.control_statements;
 
 // Demonstrates branching (jump) statements:
 // break, continue, and return.

@@ -1,4 +1,4 @@
-package codes.classes_objects;
+package Codes.classes_objects;
 
 // Demonstrates Encapsulation using private fields and public getters/setters,
 // and the usage of various access modifiers.

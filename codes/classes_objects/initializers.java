@@ -1,4 +1,4 @@
-package codes.classes_objects;
+package Codes.classes_objects;
 
 // Demonstrates the execution order of static initializers, instance initializers,
 // and constructor, along with different variable types.

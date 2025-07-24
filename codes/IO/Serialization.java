@@ -1,4 +1,4 @@
-package codes.IO;
+package Codes.IO;
 
 public class Serialization {
     

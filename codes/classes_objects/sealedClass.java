@@ -1,4 +1,4 @@
-package codes.classes_objects;
+package Codes.classes_objects;
 
 // Demonstrates Java Sealed Classes (introduced in Java 17).
 // Sealed classes allow you to explicitly declare which other classes

@@ -1,4 +1,4 @@
-package codes.data_types;
+package Codes.data_types;
 
 
 // Demonstrates implicit (widening) and explicit (narrowing) type casting for primitives

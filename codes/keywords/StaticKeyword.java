@@ -1,4 +1,4 @@
-package codes.keywords;
+package Codes.keywords;
 
 import static java.lang.System.*; // importing static members of System, now i can use "out" without System
 

@@ -1,4 +1,4 @@
-package codes.data_types;
+package Codes.data_types;
 
 // Demonstrates different types of variables in Java: local, instance, and static (class) variables,
 // along with the 'final' keyword.

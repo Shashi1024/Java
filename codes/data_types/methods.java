@@ -1,4 +1,4 @@
-package codes.data_types;
+package Codes.data_types;
 
 // Demonstrates different types of methods in Java: instance, static, and constructors,
 // along with method overloading and pass-by-value.

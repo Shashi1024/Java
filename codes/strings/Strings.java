@@ -1,4 +1,4 @@
-package codes.strings;
+package Codes.strings;
 
 // Link to Notes --> .../Notes/Strings.md
 

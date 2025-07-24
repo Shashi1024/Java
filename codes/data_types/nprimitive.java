@@ -1,4 +1,4 @@
-package codes.data_types;
+package Codes.data_types;
 
 
 // Demonstrates non-primitive (reference) data types: classes, interfaces, and arrays.

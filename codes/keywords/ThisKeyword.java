@@ -1,4 +1,4 @@
-package codes.keywords;
+package Codes.keywords;
 
 public class ThisKeyword {
     String name;

@@ -1,4 +1,4 @@
-package codes;
+package Codes;
 
 import java.util.EnumSet;
 import java.util.EnumMap;

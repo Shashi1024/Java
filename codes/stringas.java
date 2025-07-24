@@ -1,4 +1,4 @@
-package codes;
+package Codes;
 
 public class stringas {
 

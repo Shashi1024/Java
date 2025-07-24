@@ -1,4 +1,4 @@
-package codes.data_types;
+package Codes.data_types;
 
 public class literals {
     public static void main(String[] args){

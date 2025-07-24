@@ -1,4 +1,4 @@
-package codes.classes_objects;
+package Codes.classes_objects;
 
 // Demonstrates a final class, which cannot be subclassed (inherited from).
 

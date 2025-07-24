@@ -1,4 +1,4 @@
-package codes.control_statements;
+package Codes.control_statements;
 
 // Demonstrates labeled break and continue statements in Java,
 // used to control outer loops in nested loop structures.

@@ -1,4 +1,4 @@
-package codes;
+package Codes;
 
 import java.io.Serializable; // A classic example of a Marker Interface
 import java.util.ArrayList;
