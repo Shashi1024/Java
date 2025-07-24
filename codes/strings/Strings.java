@@ -1,5 +1,7 @@
 package codes.strings;
 
+// Link to Notes --> .../Notes/Strings.md
+
 public class Strings {
     public static void main(String[] args) {
         System.out.println("--- 1. String Creation & String Pool ---");

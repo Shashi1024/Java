@@ -1,5 +1,3 @@
-package temp;
-
 public class Sample{
     int a ;
     static int x;

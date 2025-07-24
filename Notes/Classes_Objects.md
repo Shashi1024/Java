@@ -256,3 +256,10 @@
 
 
 
+
+
+### `getClass()` Method
+
+
+`getClass()`: This is a method inherited from the `Object` class, which is the superclass of all classes in Java. When called on an object, `getClass()` returns a Class object that represents the runtime class of that object.
+

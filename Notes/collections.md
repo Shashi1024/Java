@@ -51,6 +51,9 @@
 
 - **`ArrayList<E>`**
   - *Underlying Data Structure* --> Resizable Array
+  - *Initial size & resizing*
+    - *default initial capacity* --> 10 elements
+    - *Resizing* --> when current capacity is exceeded, the new capacity is typically (`current_capacity * 1.5) + 1 (or current_capacity + (current_capacity / 2) + 1` in older JDKs, effectively 1.5 times). All existing elements are copied to the new, larger array.
   - *Performance*
     - `get(index)` --> O(1) - direct array access
     - `add(element)` (at end) --> Amortized O(1) - usually fast, but can be O(N) if resizing is needed.
@@ -61,6 +64,7 @@
 
 - **`LinkedList<E>`**
   - *Underlying Data Structure* --> Doubly-linked list.
+  - *Initial size & resizing* --> starts empty and grows dynamically
   - *Performance*,
     - `get(index)` --> O(N) - requires traversing the list.
     - `addFirst() / addLast() / removeFirst() / removeLast()` --> O(1) - constant time.
@@ -71,6 +75,9 @@
 
 - **`Vector<E>` (Legacy)**
   - *Underlying Data Structure* --> Resizable array.
+  - *Initial size & resizing*
+    - *default initial capacity* --> 10 elements
+    - *Resizing* --> When capacity is exceeded, Vector doubles its size `(current_capacity * 2)`. we can also specify a `capacityIncrement` at construction.
   - *Performance* --> similar to `ArrayList`, but generally slower due to synchronization overhead
   - Synchronized --> all methods are Synchronized (thread safe)
 
@@ -93,6 +100,10 @@
 
 - **`HashSet<E>`**
   - *Underlying Data Structure* --> Hash table (backed by a `HashMap`).
+  - *Initial size & resizing*
+    - *default initial capacity* --> 16 (for the underlying `HashMap`)
+    - *Default Load Factor* --> 0.75.
+    - *Resizing* --> When the number of elements (`size`) exceeds `capacity * load_factor`, the `HashSet` (or its backing `HashMap`) creates a new, larger internal array (typically double the size) and rehashes all existing elements into the new array.
   - *Performance*,
     - `add()` / `remove()` / `contains()` --> O(1) on average (constant time), assuming a good hash function and minimal collisions. Can degrade to O(N) in worst-case collision scenarios.
 
@@ -105,6 +116,8 @@
 
 - **`LinkedHashSet<E>`**
   - *Underlying Data Structure* --> Hash table with a doubly-linked list running through its entries.
+  - *Initial size & resizing*
+    - similar to `HashSet`
   - *Performance* --> Similar to HashSet (O(1) average for basic operations).
   - *Characteristics* --> Maintains insertion order (the order in which elements were added).
   - Non-Synchronized --> Not Thread Safe
@@ -112,6 +125,7 @@
 
 - **`TreeSet<E>`**
   - *Underlying Data Structure* --> Red-Black Tree (a self-balancing binary search tree).
+  - *Initial size & resizing* --> no initial capacity, dynamically grows.
   - *Performance* --> 
     - `add()` / `remove()` / `contains()` --> O(log N) (logarithmic time).
 
@@ -144,6 +158,11 @@
 
 - **`PriorityQueue<E>`**
   - *Underlying Data Structure* --> Min-heap (a binary heap).
+  - *Initial size & resizing*
+    - *default initial capacity* --> 11 elements
+    - *Resizing* --> When the capacity is exceeded, the underlying array is grown. The growth strategy is typically `(current_capacity < 64) ? (current_capacity + 2) : (current_capacity / 2) + current_capacity`.
+
+
   - *Characteristics*
     - Elements are ordered according to their natural ordering or by a Comparator provided at queue construction time. 
     - The head of the queue is the least element. 
@@ -157,6 +176,9 @@
 
 - **`ArrayDeque<E>`**
   - *Underlying Data Structure* --> Resizable array.
+  - *Initial size & resizing*
+    - *default initial capacity* --> 16 elements
+    - *Resizing* --> When the array becomes full, it doubles in size.
   - *Characteristics*
     - Can function as both a Queue (FIFO) and a Deque (double-ended queue/stack). 
     - More efficient than LinkedList when used as a stack or queue.
@@ -183,6 +205,11 @@
 
 - **`HashMap<K, V>`**
   - *Underlying Data Structure* --> Hash table.
+  - *Initial size & resizing*
+    - *default initial capacity* --> 16
+    - *Default Load Factor* --> 0.75.
+    - *Resizing* --> When the number of entries (`size`) exceeds `capacity * load_factor`, the HashMap doubles its internal array size and rehashes all existing entries into the new array. This is a costly operation `(O(N))`
+
   - *Performance*,
     - `put()` / `get()` / `remove()` / `containsKey()` --> O(1) on average, assuming a good hash function and minimal collisions. Can degrade to O(N) in worst-case collision scenarios.
 
@@ -192,9 +219,17 @@
 
   - Non-Synchronized --> Not Thread Safe
 
+  - *Internal Storage and Handling*
+    - `HashMap` stores key-value pairs in an array of "buckets". Each bucket can contain multiple entries, typically linked together in a linked list or, in Java 8+, a balanced tree (Red-Black Tree) for buckets with many collisions.
+
+    - `HashMap` uses `hashCode()` method to generate hash and uses `equals()` method for comparing the key.
+
 
 -**`LinkedHashMap<K, V>`**
   - *Underlying Data Structure* --> Hash table with a doubly-linked list running through its entries.
+  - *Internal Storage and Handling*
+    - Similar to `HashMap`, it has a default initial capacity of 16 and a load factor of 0.75, and resizes by rehashing when the threshold is met.
+
   - *Performance* --> Similar to `HashMap` (O(1) average for basic operations).
 
   - *Characteristics*
@@ -205,6 +240,9 @@
 
 - **`TreeMap<K, V>`**
   - *Underlying Data Structure* --> Red-Black Tree.
+  - *Internal Storage and Handling*
+    - does not have initial capacity, grows dynamically
+
   - *Performance*
     - `put()` / `get()` / `remove()` / `containsKey()`: O(log N).
 
@@ -216,6 +254,9 @@
 
 - **`Hashtable<K, V>` (Legacy)**
   - *Underlying Data Structure* --> Hash table.
+  - *Internal Storage and Handling*
+    - *default initial capacity* --> 11
+    - *Resizing* --> When capacity is exceeded, it increases by `(current_capacity * 2) + 1`
   - *Performance* --> Similar to `HashMap`, but generally slower due to synchronization overhead.
   - Synchronized --> all methods are synchronized (thread safe)
   - *Characteristics*

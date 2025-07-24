@@ -1,6 +1,6 @@
 package codes;
 
-public class strings {
+public class stringas {
 
     public static void main(String[] args) {
         System.out.println("--- Java Strings, StringBuilder, and StringBuffer Demonstration ---");

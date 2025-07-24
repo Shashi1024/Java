@@ -32,7 +32,7 @@
 - **`String.hashCode()`**
   - the `hashCode()` method is defined in the `java.lang.Object` class and is inherited by all the classes. its purpose is to return an integer hashCode value for the object.
   - `String` overrides this method inherited from `Object` class, because `Object`'s `hashCode()` typically returns a hash based on the object's memory address.
-  - `String.hashCode()` computes the hash code based on the **content** (character sequence) of the string. (It also has formula but i dont think you be able to remember that!)
+  - `String.hashCode()` computes the hash code based on the **content** (character sequence) of the string. (It also has formula but i dont think you'll be able to remember that!)
 
   - *Where is it used?*
     - when we use `equals()` method it compares this `hash`.
