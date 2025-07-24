@@ -1,4 +1,4 @@
-package Codes.ExceptionHandling;
+package codes.ExceptionHandling;
 
 public class sample {
     

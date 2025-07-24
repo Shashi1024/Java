@@ -1,4 +1,4 @@
-package Codes;
+package codes;
 
 // Base class (Superclass)
 class Animal {

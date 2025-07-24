@@ -1,4 +1,4 @@
-package Codes;
+package codes;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
