@@ -1,4 +1,7 @@
-*Topics --> Exception Handling, . . .*
+> *Topics --> Hierarchy, Types, Handling Mechanisms, Special Cases, . . .*\
+> *Link to Codes --> [Codes](../codes/collections/)*
+
+
 
 ## Exception Handling
 

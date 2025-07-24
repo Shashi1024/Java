@@ -1,4 +1,7 @@
-> *Topics: Primitive, Non-primitive (reference), Wrapper Classes, Literals, Type Casting, Variables, Methods . . .*
+> *Topics: Primitive, Non-primitive (reference), Wrapper Classes, Literals, Type Casting, Variables, Methods . . .*\
+> *Link to Codes --> [Codes](../codes/collections/)*
+
+
 
 # Data Types
 - *Specifies the size and type of values that can be stored in a variable.*

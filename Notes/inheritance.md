@@ -1,4 +1,7 @@
-*Topics: Inheritance, . . .*
+> *Topics: Inheritance, . . .*\
+> *Link to Codes --> [Codes](../codes/collections/)*
+
+
 
 ## Inheritance
 - In Java, inheritance is a mechanism that allows one class to inherit the fields and methods of another class.

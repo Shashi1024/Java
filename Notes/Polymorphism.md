@@ -1,4 +1,7 @@
-*Topics: Polymorphism (Compile-time, Runtime), . . .*
+> *Topics: Polymorphism (Compile-time, Runtime), . . .*\
+> *Link to Codes --> [Codes](../codes/collections/)*
+
+
 
 ## Polymorphism
 - allows objects to take on "many forms," meaning they can be treated as instances of their own class, their parent class, or any interface they implement. 

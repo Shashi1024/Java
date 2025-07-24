@@ -1,4 +1,7 @@
-*Topics --> Comparable, Comparator, . . .*
+> *Topics --> Comparable, Comparator, . . .*\
+> *Link to Codes --> [Codes](../codes/collections/)*
+
+
 
 ### The `Comparable` Interface
 - `java.lang.Comparable<T>` interface is used to define the natural ordering of objects of a particular class.

@@ -1,4 +1,7 @@
-*Topics : Memory Allocation,...*
+> *Topics : Memory Allocation,...*\
+> *Link to Codes --> [Codes](../codes/collections/)*
+
+
 
 # Memory Allocation
 - Java's memory management is handled by the Java Virtual Machine (JVM)

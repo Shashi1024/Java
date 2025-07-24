@@ -1,4 +1,7 @@
-*Topics --> Classes and Objects, Instance Initializers, Constructors, Types of Classes(static, local, final, sealed, inner)...*
+> *Topics --> Classes and Objects, Instance Initializers, Constructors, Types of Classes(static, local, final, sealed, inner)...*\
+> *Link to Codes --> [Codes](../codes/collections/)*
+
+
 
 - *Class* --> is a blueprint, defines the structure (data/fields) and behavior (methods) that objects of that type will posses. its a logical construct.
 - *Object* --> is a concrete instance of a class.
