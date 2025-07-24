@@ -67,5 +67,5 @@
 ---
 
 > **IO & Serialization**\
-> *Topics : I/O, Files, Streams*\
+> *Topics : I/O, Files, Streams, Serialization, Deserialization*\
 > *Link --> [IO](Notes/Files.md), [Serialization](Notes/Serialization.md)*
