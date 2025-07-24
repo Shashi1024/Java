@@ -1,5 +1,5 @@
 > *Topics --> Abstraction, Abstract Classes, Interfaces . . .*\
-> *Link to Codes --> [Codes](../codes/)*
+> *Link to Codes --> [Codes](../Codes/)*
 
 
 ## Abstraction

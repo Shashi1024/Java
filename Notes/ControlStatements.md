@@ -1,5 +1,5 @@
 > *Topics: Control Flow Statements, ...*\
-> *Link to Codes --> [Codes](../codes/ControlStatements/)*
+> *Link to Codes --> [Codes](../Codes/ControlStatements/)*
 
 
 

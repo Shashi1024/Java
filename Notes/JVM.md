@@ -1,5 +1,5 @@
 > *Topics: JDK, JRE, JVM, Class Loader, Garbage Collection, . . .*\
-> *Link to Codes --> [Codes](../codes/Classes&Objects/Creation.java)*
+> *Link to Codes --> [Codes](../Codes/Classes&Objects/Creation.java)*
 
 
 

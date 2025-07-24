@@ -1,5 +1,5 @@
 > *Topics --> final, static, super, default, this, . . .*\
-> *Link to Codes --> [Codes](../codes/Keywords/)*
+> *Link to Codes --> [Codes](../Codes/Keywords/)*
 
 ## Keywords
 - There are 53 keywords in java.

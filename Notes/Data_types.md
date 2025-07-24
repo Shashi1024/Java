@@ -1,5 +1,5 @@
 > *Topics: Primitive, Non-primitive (reference), Wrapper Classes, Literals, Type Casting, Variables, Methods . . .*\
-> *Link to Codes --> [Codes](../codes/DataTypes&Variables/)*
+> *Link to Codes --> [Codes](../Codes/DataTypes&Variables/)*
 
 
 

@@ -1,5 +1,5 @@
 > *Topics --> Comparable, Comparator, . . .*\
-> *Link to Codes --> [Codes](../codes/Collections/)*
+> *Link to Codes --> [Codes](../Codes/Collections/)*
 
 
 

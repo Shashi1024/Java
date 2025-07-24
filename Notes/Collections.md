@@ -1,5 +1,5 @@
 > *Topics --> Collection Framework (Interfaces, Classes), Iterator, . . .*\
-> *Link to Codes --> [Codes](../codes/Collections/)*
+> *Link to Codes --> [Codes](../Codes/Collections/)*
 
 ## Collection Framework
 - A set of interfaces and classes that implement commonly reusable collection data structures.
