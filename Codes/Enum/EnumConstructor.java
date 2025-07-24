@@ -1,3 +1,5 @@
+package Codes.Enum;
+
 enum CoffeeSize{
     SMALL(8, "S"),
     MEDIUM(12, "M"),

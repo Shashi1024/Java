@@ -116,6 +116,8 @@
 ## Java File Structure
 
 * Multiple classes can be defined in the same `.java` file, but **only one** can be declared `public`. A file can also contain multiple non-public classes.
+- we cannot have more than one top-level public type (`class`, `enum`, or `interface`) in a single Java file.
+- `main` method can be placed inside a `class`, `enum`, `interface` (even inside an `abstract` class)
 
 | Element             | Required? | Ordering                  |
 | ------------------- | :-------: | ------------------------- |

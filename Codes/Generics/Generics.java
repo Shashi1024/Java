@@ -1,4 +1,4 @@
-package Codes_new.collections;
+package Codes.Generics;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package Codes.enums;
+package Codes.Enum;
 
 // we cannot have both enum and class as public because both are top level types
 // we cannot have more than one top-level public type (class, enum, or interface) in a single Java file.

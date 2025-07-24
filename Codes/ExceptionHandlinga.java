@@ -1,4 +1,4 @@
-package Codes_new;
+package Codes;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -21,7 +21,7 @@ class InvalidInputRuntimeException extends RuntimeException {
     }
 }
 
-public class ExceptionHandling {
+public class ExceptionHandlinga {
 
     public static void main(String[] args) {
         System.out.println("--- Exception Handling Demonstration ---");

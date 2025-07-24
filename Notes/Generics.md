@@ -9,7 +9,16 @@
 - provides compile-time type safety.
 
 **What are Generics?**
-- Think of generics as placeholders for actual types. When you define a generic class like `List<T>`, `T` is a type parameter. When you use it, you replace `T` with a concrete type, like `List<String>` or `List<Integer>`.
+- Generics allow you to define classes, interfaces, and methods with **type parameters**. These type parameters act as placeholders for actual types that will be specified when the class, interface, or method is used.
+
+- **Type Parameters**
+  - `T`: Type
+  - `E`: Element (commonly used in Collections)
+  - `K`: Key
+  - `V`: Value
+  - `N`: Number
+  - `S`, `U`, `V`: Second, third, fourth types
+
 
 **Benefits**
 - *Compile-time Type Safety* --> Generics allow the compiler to check for type mismatches at compile time, catching errors early before the program runs.
@@ -39,9 +48,14 @@
 
 
 
+### Generic Interfaces
+- same as Generic Classes
+
+
 ### Generic Methods
 - a method that introduces its own type parameters
 - These type parameters can be used in the method's return type, parameter types, or local variable types.
+- The type parameter's scope is limited to the method itself.
 
     ```
     public class Util {
@@ -63,6 +77,8 @@
 
 ### Bounded Type Parameters
 - if we want to restrict the types that can be used as type arguments for a generic type, bounded type parameters can be used.
+
+- ***Wildcards*** `?` (represent an unknown type.)
 
 - **Upper Bounded Wildcards (`<? extends T>`)**
   - `<? extends T>` means "any type that is `T` or a subclass of `T`".

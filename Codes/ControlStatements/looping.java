@@ -1,4 +1,4 @@
-package Codes_new.control_statements;
+package Codes.ControlStatements;
 
 // Demonstrates looping (iterative) statements:
 // for loop, enhanced for loop (for-each), while loop, and do-while loop.

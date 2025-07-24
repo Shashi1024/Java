@@ -1,4 +1,4 @@
-package Codes_new.strings;
+package Codes.Strings;
 
 // Link to Notes --> .../Notes/Strings.md
 

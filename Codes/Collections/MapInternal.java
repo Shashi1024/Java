@@ -1,4 +1,4 @@
-package Codes_new.collections;
+package Codes.Collections;
 
 import java.util.HashMap;
 import java.util.Objects;

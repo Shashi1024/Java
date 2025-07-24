@@ -1,4 +1,4 @@
-package Codes_new.control_statements;
+package Codes.ControlStatements;
 
 // Demonstrates conditional (decision-making) statements:
 // if, if-else, if-else-if ladder, and switch (both old and new syntax).

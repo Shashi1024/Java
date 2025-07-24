@@ -1,3 +1,5 @@
+package Codes.Enum;
+
 enum Season {
     SPRING,
     SUMMER,
