@@ -15,6 +15,7 @@ public class Wildcards {
 
     // UpperBounded Wildcard (<? extends T>)
     // Method that can process a list of Numbers or any of its subclasses (Integer, Double, etc.)
+    // <? extends T> means "any type that is T or a subclass of T"
     public static double sumOfList(List<? extends Number> list) {
         double sum = 0.0;
         for (Number num : list) {
@@ -26,11 +27,12 @@ public class Wildcards {
 
     // LowerBounded Wildcard (<? super T>)
     // Method that can add Integers to a list that can hold Integers or any of its supertypes (Number, Object)
+    // <? super T> means "any type that is T or a superclass of T"
     public static void addIntegers(List<? super Integer> list) {
         list.add(10);
         list.add(20);
         list.add(30);
-        // You can add Integer or its subtypes
+        // You can add Integer or its subtypes but the list must be of super type of Integer
         // list.add(new Double(5.0)); // Compile-time error
     }
 

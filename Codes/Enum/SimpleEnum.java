@@ -14,7 +14,7 @@ enum Day{
 
     public static void main(String[] args){
         Day today = Day.SUNDAY;
-        System.out.println("Today is " + today);
+        System.out.println("Today is " + today.name());
 
         for (Day day : Day.values()) {
             System.out.println(day + " is day number " + day.ordinal());

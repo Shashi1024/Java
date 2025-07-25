@@ -13,6 +13,7 @@ enum CoffeeSize{
         this.code = c;
     }
 
+    // instance methods
     public int getQuant(){
         return this.quant;
     }
@@ -24,6 +25,7 @@ enum CoffeeSize{
     public String toString() {
         // toString() override
         return name() + " (" + quant+ ", "+ code + ")";
+        // name() returns the exact name of the enum constant as it is declared
     }
 }
 
