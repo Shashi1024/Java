@@ -1,5 +1,5 @@
 > *Topics --> Generics, . . .*\
-> *Link to Codes --> [Codes](../Codes/Collections/Generics.java)*
+> *Link to Codes --> [Codes](../Codes/Generics)*
 
 
 
