@@ -8,6 +8,9 @@
 ![Collection Framework Hierarchy](../can/collections.jpg "Collection Framework Hierarchy")
 
 
+---
+
+
 ### `Iterable` Interface (`java.lang.Iterable`) (Java 5+)
 - The `Iterable` interface is a single-method interface (making it a functional interface from Java 8, though not typically used with lambdas directly for its primary purpose). 
 - It defines only one abstract method:
@@ -27,6 +30,9 @@
     - `spliterator()` --> a specialized Iterator for traversing and partitioning elements of a source. It's primarily used internally by the Java Streams API to enable parallel processing.
 
 - we can make custom custom data structures iterable by implementing `Iterable` interface.
+
+
+---
 
 
 ### `Collection<E>` Interface (The Root Interface)
@@ -226,7 +232,7 @@
     - `HashMap` uses `hashCode()` method to generate hash and uses `equals()` method for comparing the key.
 
 
--**`LinkedHashMap<K, V>`**
+- **`LinkedHashMap<K, V>`**
   - *Underlying Data Structure* --> Hash table with a doubly-linked list running through its entries.
   - *Internal Storage and Handling*
     - Similar to `HashMap`, it has a default initial capacity of 16 and a load factor of 0.75, and resizes by rehashing when the threshold is met.
@@ -265,6 +271,9 @@
 
 
 
+---
+
+
 ### Utility Classes: `Collections` and `Arrays`
 
 - The Java Collections Framework provides utility classes with static methods to perform common operations on collections and arrays.
@@ -293,14 +302,18 @@
   - `deepEquals(Object[] a1, Object[] a2)` --> Compares two arrays for deep equality.
 
 
-
+---
 
 
 ### Iterators (Traversing Collections)
 - An `Iterator` is an object that enables you to traverse a collection and remove elements during iteration. 
 - provides a standard way to access elements sequentially without exposing the underlying structure of the collection.
 
-- *Key Methods* --> `boolean hasNext()`, `E next()`, `void remove()`, . . . 
+- *Key Methods*
+  - `boolean hasNext()`
+  - `E next()`
+  - `default void remove()` --> by default it throws an Exception (`UnsupportedOperationException("remove")`)
+  - `default void forEachRemaining(Consumer<? super E> action)` --> it uses `hasNext()`, `next()` under the hood.
 
 - `ListIterator<E>` --> A sub-interface of Iterator specifically for Lists. It provides additional functionality,
   - Bidirectional traversal (`hasPrevious()`, `previous()`).
@@ -312,7 +325,7 @@
 - `Iterator` provides a way to remove elements from the underlying collection safely during iteration (using `remove()`), which is not possible directly with the enhanced for-loop. Modifying a collection while iterating over it using an enhanced for-loop (or a traditional `for` loop that relies on index) can lead to `ConcurrentModificationException`.
 
 
-
+---
 
 
 ### Generics: Type Safety in Collections (Java 5+)
@@ -322,7 +335,7 @@
 - *For more info refer Generics --> [Generics](generics.md)*
 
 
-
+---
 
 
 ### Concurrency in Collections

@@ -1,42 +1,28 @@
 package Codes.Collections;
 
-public class CustomList {
-    
-}
+import java.util.*;
 
-
-
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
-
-// A simplified implementation of the List interface using an array.
-public class SimpleArrayList<E> implements List<E> {
-
-    private Object[] elementData;
+public class CustomList<E> implements List<E> {
+    private Object elementData[];
     private int size = 0;
     private static final int DEFAULT_CAPACITY = 10;
 
-    public SimpleArrayList() {
+    public CustomList(){
         this.elementData = new Object[DEFAULT_CAPACITY];
     }
 
-    // --- Key Implemented Methods ---
-
     @Override
-    public int size() {
+    public int size(){
         return this.size;
     }
 
     @Override
-    public boolean isEmpty() {
+    public boolean isEmpty(){
         return this.size == 0;
     }
 
     @Override
-    public boolean add(E e) {
+    public boolean add(E e){
         ensureCapacity();
         elementData[size++] = e;
         return true;
@@ -44,11 +30,11 @@ public class SimpleArrayList<E> implements List<E> {
 
     @SuppressWarnings("unchecked")
     @Override
-    public E get(int index) {
-        if (index >= size || index < 0) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
-        return (E) elementData[index];
+    public E get(int index){
+        if (index >= size || index<0)
+            throw new IndexOutOfBoundsException();
+        
+        return (E) this.elementData[index];
     }
 
     @Override
@@ -138,7 +124,7 @@ public class SimpleArrayList<E> implements List<E> {
     public List<E> subList(int fromIndex, int toIndex) { throw new UnsupportedOperationException(); }
 
     public static void main(String[] args) {
-        List<String> myList = new SimpleArrayList<>();
+        List<String> myList = new CustomList<>();
         myList.add("First");
         myList.add("Second");
         myList.add("Third");
@@ -155,3 +141,5 @@ public class SimpleArrayList<E> implements List<E> {
         System.out.println("Is list empty? " + myList.isEmpty());
     }
 }
+
+

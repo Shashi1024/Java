@@ -1,5 +1,8 @@
 package Codes.Collections;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 // creating a custom collection of items implementing the iterable
 // consider a data structure (named BookShelf) which must store a collection of books 
 // also implements iterable allowing us to iterate over the collection - BookShelf
@@ -30,88 +33,43 @@ class BookShelf implements Iterable<Book>{
             this.books[last++] = book;
     }
 
-
-}
-
-public class IterableInterface {
-
-    public static void main(String[] args){
-
-    }
-}
-
-
-
-
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-
-// A custom class representing a collection of Books.
-class Book {
-    private String title;
-
-    public Book(String title) {
-        this.title = title;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{title='" + title + "'}";
-    }
-}
-
-// Our custom collection class that implements the Iterable interface.
-public class BookShelf implements Iterable<Book> {
-    private Book[] books;
-    private int last = 0;
-
-    public BookShelf(int maxSize) {
-        this.books = new Book[maxSize];
-    }
-
-    public void addBook(Book book) {
-        if (last < books.length) {
-            this.books[last] = book;
-            last++;
-        }
-    }
-
-    // The core method of the Iterable interface.
-    // It must return an instance of an Iterator.
     @Override
     public Iterator<Book> iterator() {
-        // We return a new instance of our custom Iterator implementation.
         return new BookShelfIterator(this);
     }
 
-    // A private inner class that implements the Iterator logic for our BookShelf.
-    private static class BookShelfIterator implements Iterator<Book> {
-        private BookShelf bookShelf;
+    private static class BookShelfIterator implements Iterator<Book>{
+        private BookShelf booksShelf;
         private int index = 0;
 
-        public BookShelfIterator(BookShelf bookShelf) {
-            this.bookShelf = bookShelf;
+        public BookShelfIterator(BookShelf bs){
+            this.booksShelf = bs;
         }
 
-        // Checks if there is a next element to iterate over.
         @Override
-        public boolean hasNext() {
-            return index < bookShelf.last;
+        public boolean hasNext(){
+            return index < booksShelf.last;
         }
 
-        // Returns the next element in the iteration.
         @Override
-        public Book next() {
-            if (!hasNext()) {
+        public Book next(){
+            if(!hasNext())
                 throw new NoSuchElementException();
-            }
-            Book book = bookShelf.books[index];
-            index++;
+            
+            Book book = booksShelf.books[index++];
             return book;
         }
-    }
 
-    public static void main(String[] args) {
+        @Override
+        // actually this is the default implementation of remove() given in the Iterator interface
+        public void remove(){
+            throw new UnsupportedOperationException();
+        }
+    }
+}
+
+public class IterableInterface {
+    public static void main(String[] args){
         BookShelf shelf = new BookShelf(5);
         shelf.addBook(new Book("The Lord of the Rings"));
         shelf.addBook(new Book("Dune"));
