@@ -36,6 +36,8 @@
   - `String` overrides this method inherited from `Object` class, because `Object`'s `hashCode()` typically returns a hash based on the object's memory address.
   - `String.hashCode()` computes the hash code based on the **content** (character sequence) of the string. (It also has formula but i dont think you'll be able to remember that!)
 
+  - two Strings may have same `hashCode()` (ex. `"FB"`, `"Ea"`), that is why `equals()` is used after finding the string using the `hashCode()`.
+
   - *Where is it used?*
     - when we use `equals()` method it compares this `hash`.
     - this `hash` is used to determine and return the reference of a `String` if it already exists in String Pool.

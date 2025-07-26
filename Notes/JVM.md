@@ -74,7 +74,7 @@
   - *Native Method Libraries*
 
 
-![Alt text](../can/JVM_arch.png "JVM Architecture")
+![Alt text](../can/Jvm_architecture.png "JVM Architecture")
 
 ---
 
