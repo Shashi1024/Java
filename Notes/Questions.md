@@ -24,16 +24,15 @@
 - Generics
 - Anonymous inner class
 - What are Cursors in Java?
+- What is predicate in java?
 
 
 ```
 today
---> Codes
---> Polymorphism
---> Inheritance
---> Interfaces Deep dive
---> Abstraction
---> final
+--> Reflection
+--> Comparable
+--> Comparator
+--> Threads
 ```
 
 ```
