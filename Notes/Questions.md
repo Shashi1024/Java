@@ -72,3 +72,27 @@ today
 - 'has a' 'is a' relationship
 - garbage collection
 - bidirectional functional interface
+
+
+
+
+
+- OS level threads
+- no. of cores
+- kernel
+- virtual threads
+- memory allocation
+- continuous -JVM
+- native ops
+- blocking queue
+- pods
+- execution
+- memory sharing
+- access shared 
+- volatile
+- synchronized
+- atomic references
+- 5 types of object creation
+
+
+- create and invoke proxy in reflection
