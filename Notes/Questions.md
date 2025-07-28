@@ -27,6 +27,14 @@
 - What is predicate in java?
 
 
+Ratna
+
+- SOLID principles
+- Prototype
+- Factory
+- Why class
+- Object Creation
+
 ```
 today
 --> Reflection

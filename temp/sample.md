@@ -46,3 +46,5 @@ Basic Knowledge
 --> python
 --> testing (types of testing, tools used, importance, ...)
 --> SDLC
+
+
