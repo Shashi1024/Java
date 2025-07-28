@@ -150,40 +150,40 @@
 
 #### Types of Method References
   1. **Reference to a Static Method**
-    - refers to the static methods of a class
-    - The functional interface's abstract method parameters must match the static method's parameters, and their return types must be compatible.
-    - *Syntax* --> `ClassName::staticMethodName`
+     - refers to the static methods of a class
+     - The functional interface's abstract method parameters must match the static method's parameters, and their return types must be compatible.
+     - *Syntax* --> `ClassName::staticMethodName`
 
   2. **Reference to an Instance Method of a Particular Object**
-    - refers to an instance method of a specific, existing object.
-    - The functional interface's abstract method parameters must match the instance method's parameters, and their return types must be compatible.
-    - *Syntax* --> `objectName::instanceMethodName`
+     - refers to an instance method of a specific, existing object.
+     - The functional interface's abstract method parameters must match the instance method's parameters, and their return types must be compatible.
+     - *Syntax* --> `objectName::instanceMethodName`
 
   3. **Reference to an Instance Method of an Arbitrary Object of a Particular Type**
-    - It refers to an instance method that will be invoked on an arbitrary object of a particular type.(perhaps the most nuanced type)
-    - The key here is that the first parameter of the functional interface's abstract method becomes the target object on which the instance method is invoked.
-    - *Syntax* --> `ClassName::instanceMethodName`
-    - *Example*
-      ```
-      // Functional interface: Predicate<T> has an abstract method: boolean test(T t);
-      // Instance method: String.isEmpty()
-      Predicate<String> isEmptyChecker = String::isEmpty; // Equivalent to: s -> s.isEmpty()
-      boolean result = isEmptyChecker.test("hello"); // result will be false
-      boolean result2 = isEmptyChecker.test("");    // result2 will be true
-      ```
+     - It refers to an instance method that will be invoked on an arbitrary object of a particular type.(perhaps the most nuanced type)
+     - The key here is that the first parameter of the functional interface's abstract method becomes the target object on which the instance method is invoked.
+     - *Syntax* --> `ClassName::instanceMethodName`
+     - *Example*
+       ```
+       // Functional interface: Predicate<T> has an abstract method: boolean test(T t);
+       // Instance method: String.isEmpty()
+       Predicate<String> isEmptyChecker = String::isEmpty; // Equivalent to: s -> s.isEmpty()
+       boolean result = isEmptyChecker.test("hello"); // result will be false
+       boolean result2 = isEmptyChecker.test("");    // result2 will be true
+       ```
       - In this case, `String::isEmpty` means "take the String argument passed to `test()` and call `isEmpty()` on it."
 
   4. **Reference to a Constructor**
-    - refers to a constructor
-    - The functional interface's abstract method parameters must match the constructor's parameters, and its return type must be compatible with the type constructed by the constructor.
-    - *Syntax* --> `ClassName::new`
-    - *Example*
-      ```
-      // Functional interface: Function<Integer, String[]> has: String[] apply(Integer i);
-      // Constructor: String[](int size)
-      Function<Integer, String[]> stringArrayCreator = String[]::new; // Equivalent to: size -> new String[size]
-      String[] array = stringArrayCreator.apply(5); // Creates a new String[5]
-      ```
+     - refers to a constructor
+     - The functional interface's abstract method parameters must match the constructor's parameters, and its return type must be compatible with the type constructed by the constructor.
+     - *Syntax* --> `ClassName::new`
+     - *Example*
+       ```
+       // Functional interface: Function<Integer, String[]> has: String[] apply(Integer i);
+       // Constructor: String[](int size)
+       Function<Integer, String[]> stringArrayCreator = String[]::new; // Equivalent to: size -> new String[size]
+       String[] array = stringArrayCreator.apply(5); // Creates a new String[5]
+       ```
 
 
 #### How does it work under the Hood?
