@@ -27,18 +27,18 @@
 
 - ***Obtaining `Class` Objects*** (3 primary ways)
   1. **Using .class Literal (Most Common for known types)**
-    - used when the class type is known at compile time.
-    - *Syntax* --> `Class<MyClass> clazz = MyClass.class;`
+     - used when the class type is known at compile time.
+     - *Syntax* --> `Class<MyClass> clazz = MyClass.class;`
 
   2. **Using `Object.getClass()` (For existing objects)**
-    - used when we have an instance of an object and want to determine its actual runtime class.
-    - *Syntax* --> `MyClass obj = new MyClass(); Class<?> clazz = obj.getClass();`
+     - used when we have an instance of an object and want to determine its actual runtime class.
+     - *Syntax* --> `MyClass obj = new MyClass(); Class<?> clazz = obj.getClass();`
 
   3. **Using `Class.forName(String className)` (For dynamic loading)**
-    - used when we only know the class name as a String at runtime 
-    - This method also loads the class into the JVM if it hasn't been loaded already.
-    - *Syntax* --> `Class<?> clazz = Class.forName("com.example.MyClass");`
-    - *Exception* --> Throws `ClassNotFoundException` if the class with the specified name cannot be found.
+     - used when we only know the class name as a String at runtime 
+     - This method also loads the class into the JVM if it hasn't been loaded already.
+     - *Syntax* --> `Class<?> clazz = Class.forName("com.example.MyClass");`
+     - *Exception* --> Throws `ClassNotFoundException` if the class with the specified name cannot be found.
 
 
 
@@ -165,3 +165,14 @@ The `AccessibleObject` class (superclass of `Field`, `Method`, `Constructor`) pr
     * Using `setAccessible(true)` is a powerful operation that **bypasses Java's encapsulation and security mechanisms**. It should be used with extreme caution and only when absolutely necessary.
     * It can lead to `SecurityException` if a `SecurityManager` is active and disallows the operation.
     * In newer Java versions (modules system), `setAccessible(true)` might be restricted for modules that do not explicitly `open` their packages for reflection.
+
+
+
+### 9. JVM's Role in Reflection
+
+The JVM is the runtime environment that enables reflection.
+
+* **Runtime Metadata**: The JVM maintains extensive metadata about loaded classes in the Method Area. Reflection APIs leverage this metadata to provide information about class structure.
+* **Dynamic Class Loading**: `Class.forName()` explicitly triggers the Class Loader Subsystem to load a class into the JVM if it's not already loaded.
+* **Bytecode Interpretation/JIT Compilation**: When reflective methods like `Method.invoke()` are called, the JVM's Execution Engine (interpreter or JIT compiler) handles the dynamic dispatch and execution of the target method's bytecode.
+* **Security Checks**: The JVM enforces access control checks (unless `setAccessible(true)` is used) during reflective operations. If a `SecurityManager` is present, it performs additional security checks.
