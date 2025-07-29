@@ -139,4 +139,64 @@
 ---
 
 
+### `synchronized` Keyword
+
+- provides atomicity and visibility by enforcing mutual exclusion.
+
+#### Working
+- Every Java object, including class objects (for static methods), has an associated monitor (also known as an intrinsic lock or monitor lock). 
+- This monitor is a conceptual entity managed by the JVM.
+
+- *Phases*
+  - **Acquiring the lock**
+    - if monitor is free, thread enter the `synchronized` block
+    - if not free, the current thread enters the entry set (or contention set) for that monitor and becomes blocked until the lock is released.
+  - **Executing the Critical Section**
+  - **Releasing the Lock**
+    - When the thread exits the `synchronized` block (either normally or due to an exception), it automatically releases the monitor.
+    - Upon releasing the lock, the JVM ensures that all changes made by this thread to shared variables within the synchronized block are flushed from its local CPU cache to main memory.
+    - then any threads waiting in the entry set are then notified to acquire the lock.
+
+
+#### The Wait Set
+- each object monitor also has a wait set.
+- This set is used in conjunction with `wait()`, `notify()`, and `notifyAll()` methods.
+- When a thread calls `object.wait()` within a `synchronized` block on object, it releases the lock on object and moves from the `BLOCKED` or `RUNNABLE` state to the `WAITING` state, entering the `object`'s wait set.
+- When `object.notify()` or `object.notifyAll()` is called by another thread (which must also hold the lock on object), threads in the wait set are moved back to the entry set, becoming eligible to re-acquire the lock and resume execution.
+
+
+#### Types of `synchronized` Usage
+
+- **Synchronized Methods (Instance Methods)**
+  - When you synchronize a non-static method, the lock is acquired on the `this` object (the instance of the class).
+  - Different instances of the same class have independent locks, so threads can execute `synchronized` methods concurrently on different instances.
+
+- **Synchronized Static Methods**
+  - When you synchronize a static method, the lock is acquired on the class object.
+  - Only one thread can execute any `synchronized` static method of that class at a time, regardless of how many instances exist.
+
+- **Synchronized Blocks**
+  - We can synchronize on any arbitrary object.
+  - The lock is acquired on the object specified in the parentheses: `synchronized (objectReference) { ... }`.
+
+
+
+
+#### Reentrancy
+- `synchronized` locks are reentrant
+- if a thread already holds a lock on an object, and it tries to acquire the same lock again (e.g., by calling another synchronized method on the same object, or entering another synchronized block on the same object), it will succeed without blocking itself. 
+- The lock maintains a count of how many times the current thread has acquired it, and it's only truly released when the count drops to zero.
+
+- The synchronized keyword provides strong **happens-before guarantees**,
+  - **Release (Exit) of a synchronized block**: A release of a monitor (when a thread exits a synchronized block) happens-before any subsequent acquire of the same monitor by another thread.
+    - All writes to shared variables made by a thread before it releases a monitor are guaranteed to be visible to any other thread that subsequently acquires the same monitor.
+
+  - **Acquire (Entry) of a synchronized block**: An acquire of a monitor (when a thread enters a synchronized block) happens-before any subsequent operations within that block.
+    - When a thread acquires a monitor, its local cache is effectively invalidated, and it re-reads all shared variables from main memory, ensuring it sees the most up-to-date values.
+
+
+
+---
+
+
 ### `` Keyword

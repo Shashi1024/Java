@@ -25,6 +25,7 @@
 - Anonymous inner class
 - What are Cursors in Java?
 - What is predicate in java?
+- what is clonable and clone()?
 
 
 Ratna
@@ -96,3 +97,9 @@ today
 
 
 - create and invoke proxy in reflection
+
+
+- executor service
+- callable
+- future object
+- concurrent package
