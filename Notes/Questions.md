@@ -25,6 +25,7 @@
 - Anonymous inner class
 - What are Cursors in Java?
 - What is predicate in java?
+- clone()
 
 
 Ratna
@@ -96,3 +97,4 @@ today
 
 
 - create and invoke proxy in reflection
+- reflections with abstract
