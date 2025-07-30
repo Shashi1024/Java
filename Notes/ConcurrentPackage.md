@@ -81,6 +81,7 @@
    - Leading into `ScheduledExecutorService` --> This factory method creates an instance of `ScheduledExecutorService`, which extends `ExecutorService` and adds methods like `schedule()`, `scheduleAtFixedRate()`, and `scheduleWithFixedDelay()`.
 
 
+---
 
 ### `Callable` Interface
 - The `Callable` interface is similar to Runnable, but with two key differences,
@@ -93,6 +94,8 @@
         V call() throws Exception;
     }
     ```
+
+---
 
 
 ### `Future` Interface
@@ -110,7 +113,7 @@
   -  When you submit a `Callable` (or `Runnable`) to an `ExecutorService` using the `submit()` method, it returns a `Future` object. This `Future` object is your handle to the asynchronous task's result or status.
 
 
-
+---
 
 ### Concurrent Collections
 - traditional collections are not thread-safe, access/modifying them without external synchronization, may lead to race conditions, data corruption, . . .
@@ -162,7 +165,7 @@
     - weakly consistent Iterators
 
 
-
+---
 
 ### Blocking Queues
 - blocks threads when the queue is either empty (for consumers) or full (for producers).
