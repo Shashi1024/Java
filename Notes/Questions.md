@@ -25,7 +25,11 @@
 - Anonymous inner class
 - What are Cursors in Java?
 - What is predicate in java?
+<<<<<<< HEAD
 - clone()
+=======
+- what is clonable and clone()?
+>>>>>>> aa845c4328ce00eff62aac75d10ea530e5e1a577
 
 
 Ratna
@@ -94,7 +98,18 @@ today
 - synchronized
 - atomic references
 - 5 types of object creation
+- Deep Copy & Shallow Copy
+
+sandeep
+- create and invoke proxy in reflection
 
 
+<<<<<<< HEAD
 - create and invoke proxy in reflection
 - reflections with abstract
+=======
+- executor service
+- callable
+- future object
+- concurrent package
+>>>>>>> aa845c4328ce00eff62aac75d10ea530e5e1a577
