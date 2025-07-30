@@ -94,8 +94,9 @@ today
 - synchronized
 - atomic references
 - 5 types of object creation
+- Deep Copy & Shallow Copy
 
-
+sandeep
 - create and invoke proxy in reflection
 
 

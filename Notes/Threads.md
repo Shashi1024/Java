@@ -166,6 +166,11 @@
 
 - **`ThreadLocal`** variables --> provides a way to store data that is unique to each thread. 
   - Even though the variable name is shared, each thread gets its own independent copy of the value. 
+  - *Methods*
+    - `T get()`: Returns the value in the current thread's copy of this thread-local variable.
+    - `void set(T value)`: Sets the current thread's copy of this thread-local variable to the specified value.
+    - `void remove()`: Removes the current thread's value for this thread-local variable. This is crucial for preventing memory leaks, especially in thread pools.
+    
     ```
     public class ThreadLocalExample {
         private static ThreadLocal<String> threadName = new ThreadLocal<>();
