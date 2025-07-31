@@ -25,11 +25,9 @@
 - Anonymous inner class
 - What are Cursors in Java?
 - What is predicate in java?
-<<<<<<< HEAD
 - clone()
-=======
 - what is clonable and clone()?
->>>>>>> aa845c4328ce00eff62aac75d10ea530e5e1a577
+- overloading and overriding in an interface
 
 
 Ratna

@@ -259,9 +259,63 @@
 
 #### `Lock` Interface
 - provides a more explicit and flexible locking mechanism than the `synchronized` keyword. 
+- separates the lock acquisition and release into distinct methods
+- *Methods*
+  - `void lock()` --> Acquires the lock. 
+    - If the lock is not available, the current thread is disabled for thread scheduling.
+    - This is a blocking call.
+  - `void unlock()` --> Releases the lock. 
+    - This method should always be called in a `finally` block to ensure the lock is released even if an exception occurs.
+  - `boolean tryLock()` --> Acquires the lock only if it is free at the time of invocation. 
+    - Returns `true` if the lock was acquired, `false` otherwise. 
+    - This is a non-blocking call.
+  - `boolean tryLock(long timeout, TimeUnit unit)` --> Acquires the lock if it is free within the given waiting time and the current thread has not been interrupted.
+  - `void lockInterruptibly()` --> Acquires the lock unless the current thread is interrupted. If the thread is interrupted while waiting for the lock, an `InterruptedException` is thrown.
 
+
+- **`ReentrantLock` (Reentrant Mutual Exclusion Lock)**
+  - a concrete implementation of `Lock` interface
+  - "Reentrant" means that a thread that already holds the lock can acquire it again without blocking itself.
+
+
+
+#### `ReadWriteLock` Interface
+- provides a pair of associated locks, one for read-only operations and one for write operations. 
+- *Concept*
+  - **Read Lock** --> Multiple threads can acquire the read lock concurrently, as long as no thread holds the write lock.
+  - **Write Lock** --> Only one thread can acquire the write lock at a time. When the write lock is held, no other threads (readers or writers) can acquire either the read or write lock.
+
+
+- **`ReentrantReadWriteLock`
+  - concrete implementation of the `ReadWriteLock` interface. 
+  - its reentrant (a thread holding a write lock can acquire read locks or re-acquire the write lock.)
+  - *Methods*
+    - `Lock readLock()` --> Returns the lock used for reading.
+    - `Lock writeLock()` --> Returns the lock used for writing.
+  - Each of these returned Lock objects (`ReentrantReadWriteLock.ReadLock` and `ReentrantReadWriteLock.WriteLock`) implements the `Lock` interface, so they have `lock()`, `unlock()`, `tryLock()`, etc., methods.
 
 
 ---
 
-### Conditions
+### `Condition` Objects (Condition Interface)
+> *Link to Codes --> [Codes](../Codes/Concurrency/Conditions.java)*
+
+- used in conjunction with `Lock` implementations to provide more flexible and powerful `wait()`/`notify()` mechanisms
+- this is a replacement for `Object`'s intrinsic `wait()`, `notify()`, and `notifyAll()` methods
+
+- A `Condition` object is always created from a `Lock` instance using the `newCondition()` method. 
+- This means that a thread must hold the associated `Lock` before calling any `Condition` methods (e.g., `await()`, `signal()`).
+
+- *Methods*
+  - `void await()` --> Causes the current thread to wait until another thread invokes `signal()` or `signalAll()` for this `Condition`. Similar to `Object.wait()`, it releases the associated lock and re-acquires it before returning.
+  - `void awaitUninterruptibly()` --> Similar to `await()`, but ignores `InterruptedException`.
+  - `boolean await(long time, TimeUnit unit)` --> Causes the current thread to wait until either the signal is received or the specified waiting time elapses.
+  - `void signal()` --> Wakes up one waiting thread. Similar to `Object.notify()`.
+  - `void signalAll()` --> Wakes up all waiting threads. Similar to `Object.notifyAll()`.
+
+- *Advantages over `Object.wait()`/`notify()`*
+  - **multiple condition queues per lock**
+    - With `Object.wait()`/`notify()`, all threads waiting on a single object's monitor are in the same "wait set." When `notifyAll()` is called, all of them wake up, even if only a subset of them are interested in the condition that just changed (this is called "notification storm" or "spurious wakeups" in a broader sense).
+    - `Condition` objects allow you to have separate "wait sets" (condition queues) for different conditions. A thread can wait on a specific `Condition` and only be woken up when `signal()` or `signalAll()` is called on that specific `Condition` object. 
+
+  - **Interruptible Waiting** --> `await()` methods are interruptible, allowing threads to be woken up by an `InterruptedException`.

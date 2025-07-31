@@ -1,16 +1,38 @@
-public class Sample{
-    int a ;
-    static int x;
-    public static void main(String [] args){
-        Hello h = new Hello();
-        // Hello h1 = new Hello();
+public class Sample implements Trial{
+    // int a ;
+    // static int x;
+    // public static void main(String [] args){
+    //     Hello h = new Hello();
+    //     // Hello h1 = new Hello();
+    // }
+
+    // static void meth(){
+    //     int c;
+    //     // System.out.println(c);
+    // }
+
+    public int sum(int a, int b){
+        return a+b;
+    }
+    public int sum(int a, int b, int c){
+        return a+b+c;
     }
 
-    static void meth(){
-        int c;
-        // System.out.println(c);
+    public int sum(int a){
+        return a;
     }
 }
+
+
+interface Trial{
+    int sum(int a, int b);
+    default int sum(int a, int b, int c){
+        return a+b+c;
+    };
+}
+
+
+
 
 class Big{
     Big(int a){
