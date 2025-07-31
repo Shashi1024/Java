@@ -32,6 +32,15 @@
   ```
 
 
+
+- **Interrupt flag**
+  - The interrupt flag is a `boolean` flag associated with each thread, initially `false`. It serves as a cooperative signal that another thread has requested this thread to stop its current activity or terminate gracefully.
+
+  - `Thread.currentThread().interrupt()` sets this interrupt flag of the current thread (the one executing this line of code) to `true`. It's commonly used within an `InterruptedException` `catch` block to re-assert the interruption signal, ensuring higher-level code or the thread's own loop can detect and respond to the original interruption request.
+
+
+
+
 ### OS Threads Vs. Java Threads
 - modern JVMs typically implement Java threads as 1:1 mappings to native operating system (OS) threads.
 - **OS Thread** --> fundamental unit of execution scheduled by the operating system kernel.
@@ -157,6 +166,12 @@
       }
   }
   ```
+
+
+
+
+
+
 
 
 ### Memory Allocation

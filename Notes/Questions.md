@@ -103,12 +103,9 @@ sandeep
 - create and invoke proxy in reflection
 
 
-<<<<<<< HEAD
 - create and invoke proxy in reflection
 - reflections with abstract
-=======
 - executor service
 - callable
 - future object
 - concurrent package
->>>>>>> aa845c4328ce00eff62aac75d10ea530e5e1a577
