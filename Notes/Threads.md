@@ -1,8 +1,9 @@
-> *Topics --> Threads, . . .*
-> 
+> *Topics --> Threads, . . .*\
+> *Link to Codes --> [Codes](../Codes/Concurrency/)*
 
 
 ## Threads
+> *Link to Codes --> [Codes](../Codes/Concurrency/ThreadCreation.java)*
 
 - thread is an independent path of execution within a program. 
 - we primarily interact with threads using the `java.lang.Thread` class or by implementing the `java.lang.Runnable` interface.
@@ -127,6 +128,8 @@
 
 
 ### Virtual Threads (Project Loom)
+> *Link to Codes --> [Codes](../Codes/Concurrency/VirtualThread.java)*
+
 - introduced in Java 21, also known as Fibers or User-Mode Threads (provides higher concurrency)
 - *Characteristics*
   - **Lightweight** --> are managed by the JVM, not directly by the OS. Their stack size is much smaller, and their creation/destruction overhead is minimal.
@@ -165,6 +168,8 @@
 
 
 - **`ThreadLocal`** variables --> provides a way to store data that is unique to each thread. 
+> *Link to Codes --> [Codes](../Codes/Concurrency/ThreadLocalVar.java)*
+
   - Even though the variable name is shared, each thread gets its own independent copy of the value. 
   - *Methods*
     - `T get()`: Returns the value in the current thread's copy of this thread-local variable.
@@ -188,6 +193,8 @@
     ```
 
 ### Thread Communication
+> *Link to Codes --> [Codes](../Codes/Concurrency/Communication.java)*
+
 - `wait()`, `notify()`, `notifyAll()` --> These methods (defined in `Object`) are used for inter-thread communication based on an object's monitor (lock).
   - `wait()` --> A thread releases the lock on an object and goes into a waiting state until another thread calls `notify()` or `notifyAll()` on the same object.
   - `notify()` --> Wakes up a single waiting thread.
@@ -206,6 +213,8 @@
 
 
 ### `Volatile` keyword
+> *Link to Codes --> [Codes](../Codes/Concurrency/VolatileKeyword.java)*
+
 - it ensures visibility of changes to a shared variable across threads.
 - *Visibility* --> When a variable is declared `volatile`, any write to that variable by one thread is immediately visible to other threads. This prevents threads from caching stale values in their local CPU caches or registers.
 - *Happens-Before Guarantee*: A write to a `volatile` variable "happens-before" any subsequent read of that same `volatile` variable. This means that not only the `volatile` variable itself, but also all variables visible to the writing thread before the `volatile` write, become visible to any thread that subsequently reads the `volatile` variable.

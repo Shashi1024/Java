@@ -1,5 +1,5 @@
-> *Topics --> Concurrent, . . .*
->
+> *Topics --> Concurrent, . . .*\
+> *Link to Codes --> [Codes](../Codes/Concurrency/)*
 
 
 ## `java.util.concurrent`
@@ -8,11 +8,14 @@
 
 
 ### `synchronized` Keyword
-- *Refer Keywords: Link --> [Notes](Keywords.md)*
+> *Refer Keywords: Link --> [Notes](Keywords.md)*\
+> *Link to Code --> [Codes](../codes/Concurrency/SynchronizedKeyword.java)*
 
 ---
 
 ### Executors Framework
+> *Link to Codes --> [Codes](../Codes/Concurrency/ExecutorFramework.java)*
+
 - The Java Executors Framework (part of `java.util.concurrent`) provides a higher-level API for managing threads, decoupling task submission from task execution. 
 - It primarily uses thread pools to reuse threads, reducing overhead.
 
@@ -41,6 +44,8 @@
 
 
 - **Task Submission Methods**
+> *Link to Codes --> [Codes](../Codes/Concurrency/CallableFuture.java)*
+
   1. `Future<?> submit(Runnable task)`
      - Submits a `Runnable` task for execution.
      - Returns a `Future<?> object`. Since Runnable tasks don't return a value, the `Future`'s `get()` method will return `null` upon completion.
@@ -64,6 +69,8 @@
 
 
 #### `Executors` Utility Class
+> *Link to Codes --> [Codes](../Codes/Concurrency/ThreadPools)*
+
 - provides convenient static factory methods for creating various types of `ExecutorService` instances, pre-configured with common thread pool characteristics.
 
 1. `newFixedThreadPool(int nThreads)`
@@ -84,6 +91,8 @@
 ---
 
 ### `Callable` Interface
+> *Link to Codes --> [Codes](../Codes/Concurrency/CallableFuture.java)*
+
 - The `Callable` interface is similar to Runnable, but with two key differences,
   - *Returns a Result* --> Its `call()` method returns a value of type `T`.
   - *Can Throw Checked Exceptions* --> Its `call()` method can declare checked exceptions, which can then be caught by the code retrieving the result.
@@ -99,6 +108,8 @@
 
 
 ### `Future` Interface
+> *Link to Codes --> [Codes](../Codes/Concurrency/CallableFuture.java)*
+
 - The `Future` interface represents the result of an asynchronous computation. 
 - It provides methods to check if the computation is complete, to wait for its completion, and to retrieve the result of the computation.
 - *Key Methods*
@@ -168,6 +179,8 @@
 ---
 
 ### Blocking Queues
+> *Link to Codes --> [Codes](../Codes/Concurrency/BlockingQ.java)*
+
 - blocks threads when the queue is either empty (for consumers) or full (for producers).
 - fundamental for implementing the Producer-Consumer pattern, where one or more threads produce items and add them to a queue, and one or more threads consume items from the same queue.
 
@@ -234,3 +247,21 @@
 
   - *Mechanism*
     - Uses a `PriorityQueue` internally to manage elements based on their delay and a `ReentrantLock` with a `Condition` for blocking.
+
+  
+---
+
+### Locks
+> *Link to Codes --> [Codes](../Codes/Concurrency/Locks.java)*
+
+- `java.util.concurrent.locks`
+- offer features not available with intrinsic locks, such as fair locking, non-blocking lock acquisition, interruptible lock acquisition, and multiple condition queues per lock.
+
+#### `Lock` Interface
+- provides a more explicit and flexible locking mechanism than the `synchronized` keyword. 
+
+
+
+---
+
+### Conditions

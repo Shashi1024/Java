@@ -53,7 +53,7 @@
 
 ### `static` Keyword
 
-*Link to Codes --> [Codes](../codes/keywords/StaticKeyword.java)*
+> *Link to Codes --> [Codes](../codes/keywords/StaticKeyword.java)*
 
 - it is a non-access modifier
 - It signifies that a member belongs to the class itself, rather than to any specific instance of that class
@@ -140,6 +140,7 @@
 
 
 ### `synchronized` Keyword
+> *Link to Codes --> [Codes](../codes/Concurrency/SynchronizedKeyword.java)*
 
 - provides atomicity and visibility by enforcing mutual exclusion.
 
@@ -194,6 +195,18 @@
   - **Acquire (Entry) of a synchronized block**: An acquire of a monitor (when a thread enters a synchronized block) happens-before any subsequent operations within that block.
     - When a thread acquires a monitor, its local cache is effectively invalidated, and it re-reads all shared variables from main memory, ensuring it sees the most up-to-date values.
 
+
+
+---
+
+
+### `Volatile` keyword
+> *Link to Codes --> [Codes](../Codes/Concurrency/VolatileKeyword.java)*
+
+- it ensures visibility of changes to a shared variable across threads.
+- *Visibility* --> When a variable is declared `volatile`, any write to that variable by one thread is immediately visible to other threads. This prevents threads from caching stale values in their local CPU caches or registers.
+- *Happens-Before Guarantee*: A write to a `volatile` variable "happens-before" any subsequent read of that same `volatile` variable. This means that not only the `volatile` variable itself, but also all variables visible to the writing thread before the `volatile` write, become visible to any thread that subsequently reads the `volatile` variable.
+- it guarantees only visibility, not Atomicity. and is insufficient to prevent race conditions.
 
 
 ---

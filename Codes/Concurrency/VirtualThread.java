@@ -1,8 +1,6 @@
-package Codes.Reflection;
+package Codes.Concurrency;
 
-import java.util.concurrent.Executors;
-
-public class sample {
+public class VirtualThread {
     public static void main(String[] args) throws InterruptedException{
         System.out.println("Main Thread Started");
 
