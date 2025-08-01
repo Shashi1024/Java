@@ -1,4 +1,15 @@
-public class Sample implements Trial{
+
+
+interface Trial{
+    int sum(int a, int b);
+    default int su(int a, int b, int c){
+        return a+b+c;
+    };
+    int x = 0;
+}
+
+
+public class Sample {
     // int a ;
     // static int x;
     // public static void main(String [] args){
@@ -10,6 +21,16 @@ public class Sample implements Trial{
     //     int c;
     //     // System.out.println(c);
     // }
+
+    public static void main(String[] args){
+        Trial t = (a, b) ->{
+            return a+b;
+        };
+
+        Trial t1 = new Trial((a, b) -> {
+
+        });
+    }
 
     public int sum(int a, int b){
         return a+b;
@@ -24,12 +45,7 @@ public class Sample implements Trial{
 }
 
 
-interface Trial{
-    int sum(int a, int b);
-    default int sum(int a, int b, int c){
-        return a+b+c;
-    };
-}
+
 
 
 
