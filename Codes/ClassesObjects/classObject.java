@@ -1,4 +1,4 @@
-package Codes_new.classes_objects;
+package Codes.ClassesObjects;
 
 
 // Class: A blueprint for creating objects.

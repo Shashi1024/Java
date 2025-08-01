@@ -319,3 +319,96 @@
     - `Condition` objects allow you to have separate "wait sets" (condition queues) for different conditions. A thread can wait on a specific `Condition` and only be woken up when `signal()` or `signalAll()` is called on that specific `Condition` object. 
 
   - **Interruptible Waiting** --> `await()` methods are interruptible, allowing threads to be woken up by an `InterruptedException`.
+
+
+
+
+### Atomic Variables
+- `java.util.concurrent.atomic` package provides classes that support atomic operations on single variables.
+- Atomic operations are single, indivisible operations that are guaranteed to complete without interference from other threads. 
+
+- **Working --> Compare-And-Swap (CAS)**
+  - Atomic classes achieve their thread safety primarily through a low-level CPU instruction called Compare-And-Swap (CAS).
+  - *The CAS operation takes three operands*
+    1. `V (Memory Location)` --> The memory address of the variable to be updated.
+    2. `A (Expected Value)` --> The value that the memory location is expected to have.
+    3. `B (New Value)` --> The new value to set the memory location to.
+  
+  - it reads the current value at memory location V. If this current value is equal to the expected value A (old copy of the value read by this thread from V), then it writes the new value B to V. 
+  - Otherwise (if the current value is not A), it does nothing. In either case, it returns the value that was actually read from V before the attempt to write.
+
+
+-  A thread attempts to make a change, assuming no other thread has interfered. If interference is detected (the value has changed), the operation fails, and the thread can retry.
+
+
+
+#### Basic Atomic Classes --> `AtomicInteger`, `AtomicLong`, `AtomicBoolean`
+- These classes provide atomic operations for primitive types.
+
+- `AtomicInteger`, `AtomicLong`, `AtomicBoolean` --> Provides atomic operations on `int`, `long`, `boolean` values respectively
+
+- *Methods*
+  - `get()` --> Atomically returns the current value.
+  - `set(newValue)` --> Atomically sets the value to newValue.
+  - `compareAndSet(expectedValue, updateValue)` --> Atomically sets the value to `updateValue` if the current value is `expectedValue`. Returns `true` if successful, `false` otherwise. This is the core CAS operation.
+  - `incrementAndGet()` --> Atomically increments the current value by one and returns the updated value.
+  - `getAndIncrement()` --> Atomically increments the current value by one and returns the old value.
+
+  - also has methods for decrementing, adding and setting values.
+
+
+#### `AtomicReference` --> Atomic Operations on Object References
+- allows us to atomically set, update, retrieve an object reference
+- can be used to change a shared object pointer in a thread-safe manner.
+- *Methods* --> similar to `AtomicInteger`, it provides `get()`, `set()`, and `compareAndSet(expectedRef, newRef)`.
+
+
+#### Addressing the ABA Problem: `AtomicStampedReference` and `AtomicMarkableReference`
+- It occurs when a memory location is read as value A, then changed to B, and then changed back to A. A subsequent CAS operation might incorrectly succeed because it only checks if the current value is A, without knowing that the value has undergone intermediate changes.
+
+- *Scenario,*
+  - Thread 1 reads value `A`.
+  - Thread 2 changes value from `A` to `B`, then back to `A`.
+  - Thread 1 attempts a CAS operation from `A` to `C`. The CAS succeeds because the value is currently `A`, even though it was modified by Thread 2. This can be problematic if the intermediate change to `B` invalidated some invariant that Thread 1 was relying on.
+
+
+- **`AtomicStampedReference`**
+  - To atomically update an object reference and detect if the reference has changed any number of times between reads.
+  - solves the ABA problem by associating a stamp (an integer version number) with the reference.
+  - it requires both the expected reference and the expected stamp to match. If either doesn't match, the operation fails.
+
+  - *Methods*
+    - `V getReference()` --> Returns the current value of the reference.
+    - `int getStamp()` --> Returns the current value of the stamp.
+    - `boolean compareAndSet(V expectedReference, V newReference, int expectedStamp, int newStamp)` --> Atomically sets the value of the reference to `newReference` and the stamp to `newStamp` if the current reference is `expectedReference` and the current stamp is `expectedStamp`.
+
+
+- **`AtomicMarkableReference`**
+  - It associates a single **boolean mark** with the reference. (a bit simpler than stamp) (detects if the reference has changed(marked) atleast once)
+  - It's useful when you only need to know if the reference has been changed at all, rather than tracking a version number.
+
+  - *Methods*
+    - `V getReference()` --> Returns the current value of the reference.
+    - `boolean isMarked()` --> Returns the current value of the mark.
+    - `boolean compareAndSet(V expectedReference, V newReference, boolean expectedMark, boolean newMark)` --> Atomically sets the value of the reference to `newReference` and the mark to `newMark` if the current reference is `expectedReference` and the current mark is `expectedMark`.
+
+
+
+#### High-Performance Adders/Accumulators --> `LongAdder`, `LongAccumulator`, `DoubleAdder`, `DoubleAccumulator`
+- Instead of a single shared variable, these classes maintain a dynamically sized array of internal variables (often called "cells"). 
+- When multiple threads attempt to update the value concurrently, they are directed to update different cells in the array. This effectively "stripes" the updates across multiple memory locations, reducing contention on any single cache line. 
+- When the actual sum or value is needed (`sum()`, `get()`), all the individual cell values are summed up.
+
+
+
+---
+
+### Daemon Threads
+
+
+
+
+
+---
+
+### Fork/Join Pool

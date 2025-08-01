@@ -2,7 +2,8 @@
 
 interface Trial{
     int sum(int a, int b);
-    default int su(int a, int b, int c){
+    
+    default int sum(int a, int b, int c){
         return a+b+c;
     };
     int x = 0;
@@ -27,9 +28,9 @@ public class Sample {
             return a+b;
         };
 
-        Trial t1 = new Trial((a, b) -> {
+        // Trial t1 = new Trial((a, b) -> {
 
-        });
+        // });
     }
 
     public int sum(int a, int b){
