@@ -1,8 +1,134 @@
 ## Contents
 
+> **Building Blocks**\
+> *Topics : Building Blocks of a program*\
+> *Link --> [Notes](Notes/BuildingBlocks.md)*
+
+---
+
 > **Data Types, Variables & Methods**\
 > *Topics : Primitive, Non-primitive (reference), Wrapper Classes, Literals, Type Casting, Variables, Methods*\
-> *Link --> [Notes](Notes/Data_types.md)*
+> *Link --> [Notes](Notes/Data_types.md) | [Code](Codes/DataTypes&Variables/)*
+
+---
+
+> **Operators**\
+> *Topics : Operators in Java*\
+> *Link --> [Notes](Notes/Operators.md)*
+
+---
+
+> **Control Flow Statements**\
+> *Topics : Control Flow Statements*\
+> *Link --> [Notes](Notes/ControlStatements.md) | [Code](Codes/ControlStatements/)*
+
+---
+
+> **Classes & Objects**\
+> *Topics : Classes and Objects, Instance Initializers, Constructors, Types of Classes(static, local, final, sealed, inner)*\
+> *Link --> [Notes](Notes/Classes_Objects.md) | [Code](Codes/ClassesObjects/)*
+
+---
+
+> **Access Modifiers**\
+> *Topics : Access Modifiers*\
+> *Link --> [Notes](Notes/AccessModifiers.md) | [Code](Codes/ClassesObjects/accessModifiers.java)*
+
+---
+
+> **Keywords**\
+> *Topics : this, static*\
+> *Link --> [Notes](Notes/Keywords.md) | [Code](Codes/Keywords/)*
+
+---
+
+> **Strings**\
+> *Topics : Strings, String Pool, String Builder, String Buffer*\
+> *Link --> [Notes](Notes/Strings.md) | [Code](Codes/Strings/)*
+
+---
+
+> **Inheritance**\
+> *Topics : Inheritance*\
+> *Link --> [Notes](Notes/Inheritance.md) | [Code](Codes/inheritance.java)*
+
+---
+
+> **Polymorphism**\
+> *Topics : Polymorphism (Compile-time, Runtime)*\
+> *Link --> [Notes](Notes/Polymorphism.md) | [Code](Codes/polymorphism.java)*
+
+---
+
+> **Abstraction**\
+> *Topics : Abstraction, Abstract Classes, Interfaces*\
+> *Link --> [Notes](Notes/Abstraction.md) | [Code for Abstract Class](Codes/ClassesObjects/abstractClass.java) | [Code for Interface](Codes/interfaces.java)*
+
+---
+
+> **Interfaces**\
+> *Topics : Interfaces, default methods, static methods*\
+> *Link --> [Notes](Notes/Interfaces.md) | [Code](Codes/interfaces.java)*
+
+---
+
+> **Exception Handling**\
+> *Topics : Hierarchy, Types, Handling Mechanisms, Special Cases*\
+> *Link --> [Notes](Notes/ExceptionHandling.md) | [Code](Codes/ExceptionHandling/)*
+
+---
+
+> **Enum**\
+> *Topics : Enum, Implementation*\
+> *Link --> [Notes](Notes/Enum.md) | [Code](Codes/Enum/)*
+
+---
+
+> **Generics**\
+> *Topics : Generics, Type Parameters, Bounded Types, Wildcards*\
+> *Link --> [Notes](Notes/Generics.md) | [Code](Codes/Generics/)*
+
+---
+
+> **Collections**\
+> *Topics : Collection Framework (Interfaces, Classes), Iterator*\
+> *Link --> [Notes](Notes/Collections.md) | [Code](Codes/Collections/)*
+
+---
+
+> **Comparison**\
+> *Topics : Comparable and Comparator*\
+> *Link --> [Notes](Notes/Compare.md) | [Code](Codes/Collections/)*
+
+---
+
+> **IO & Serialization**\
+> *Topics : I/O, Files, Streams, Serialization, Deserialization*\
+> *Link --> [IO](Notes/IO.md) | [Serialization](Notes/Serialization.md) | [Code](Codes/IO/)*
+
+---
+
+> **Concurrency & Threads**\
+> *Topics : Concurrency, Threads, Executor Framework, Synchronization*\
+> *Link --> [Concurrency](Notes/ConcurrentPackage.md) | [Threads](Notes/Threads.md) | [Code](Codes/Concurrency/)*
+
+---
+
+> **Reflection**\
+> *Topics : Reflection API*\
+> *Link --> [Notes](Notes/Reflection.md) | [Code](Codes/Reflection/)*
+
+---
+
+> **Streams**\
+> *Topics : Streams API*\
+> *Link --> [Notes](Notes/Streams.md) | [Code](Codes/Streams.java)*
+
+---
+
+> **Functional Constructs**\
+> *Topics : Functional Interfaces, Lambda Expressions, Method References*\
+> *Link --> [Notes](Notes/FunctionalConstructs.md)*
 
 ---
 
@@ -12,66 +138,6 @@
 
 ---
 
-> **Classes & Objects**\
-> *Topics : Classes and Objects, Instance Initializers, Constructors, Types of Classes(static, local, final, sealed, inner)*\
-> *Link --> [Notes](Notes/Classes_Objects.md)*
-
----
-
-> **Control Flow Statements**\
-> *Topics : Control Flow Statements*\
-> *Link --> [Notes](Notes/ControlStatements.md)*
-
----
-
-> **Strings**\
-> *Topics : Strings, String Pool, String Builder, String Buffer*\
-> *Link --> [Notes](Notes/Strings.md)*
-
----
-
-> **Polymorphism**\
-> *Topics : Polymorphism (Compile-time, Runtime)*\
-> *Link --> [Notes](Notes/Polymorphism.md)*
-
----
-
-> **Inheritance**\
-> *Topics : Inheritance*\
-> *Link --> [Notes](Notes/Inheritance.md)*
-
----
-
-> **Abstraction**\
-> *Topics : Abstraction, Abstract Classes, Interfaces*\
-> *Link --> [Notes](Notes/Abstraction.md)*
-
----
-
-> **Exception Handling**\
-> *Topics : Hierarchy, Types, Handling Mechanisms, Special Cases*\
-> *Link --> [Notes](Notes/ExceptionHandling.md)*
-
----
-
-> **Enum**\
-> *Topics : Enum, Implementation*\
-> *Link --> [Notes](Notes/Enum.md)*
-
----
-
-> **Keywords**\
-> *Topics : this, static*\
-> *Link --> [Notes](Notes/Keywords.md)*
-
----
-
-> **Collections**\
-> *Topics : Collection Framework (Interfaces, Classes), Iterator*\
-> *Link --> [Notes](Notes/Collections.md)*
-
----
-
-> **IO & Serialization**\
-> *Topics : I/O, Files, Streams, Serialization, Deserialization*\
-> *Link --> [IO](Notes/IO.md), [Serialization](Notes/Serialization.md)*
+> **Memory Allocation**\
+> *Topics : Stack, Heap*\
+> *Link --> [Notes](Notes/Memory_Allocation.md)*
