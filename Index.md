@@ -1,26 +1,8 @@
 ## Contents
 
-> **Building Blocks**\
-> *Topics : Building Blocks of a program*\
-> *Link --> [Notes](Notes/BuildingBlocks.md)*
-
----
-
 > **Data Types, Variables & Methods**\
 > *Topics : Primitive, Non-primitive (reference), Wrapper Classes, Literals, Type Casting, Variables, Methods*\
 > *Link --> [Notes](Notes/Data_types.md) | [Code](Codes/DataTypes&Variables/)*
-
----
-
-> **Operators**\
-> *Topics : Operators in Java*\
-> *Link --> [Notes](Notes/Operators.md)*
-
----
-
-> **Control Flow Statements**\
-> *Topics : Control Flow Statements*\
-> *Link --> [Notes](Notes/ControlStatements.md) | [Code](Codes/ControlStatements/)*
 
 ---
 
@@ -30,15 +12,15 @@
 
 ---
 
-> **Access Modifiers**\
-> *Topics : Access Modifiers*\
-> *Link --> [Notes](Notes/AccessModifiers.md) | [Code](Codes/ClassesObjects/accessModifiers.java)*
+> **JDK, JRE, JVM**\
+> *Topics : JDK, JRE, JVM, Class Loader, Garbage Collection, Memory Management*\
+> *Link --> [Notes](Notes/JVM.md)*
 
 ---
 
-> **Keywords**\
-> *Topics : this, static*\
-> *Link --> [Notes](Notes/Keywords.md) | [Code](Codes/Keywords/)*
+> **Control Flow Statements**\
+> *Topics : Control Flow Statements*\
+> *Link --> [Notes](Notes/ControlStatements.md) | [Code](Codes/ControlStatements/)*
 
 ---
 
@@ -75,6 +57,12 @@
 > **Exception Handling**\
 > *Topics : Hierarchy, Types, Handling Mechanisms, Special Cases*\
 > *Link --> [Notes](Notes/ExceptionHandling.md) | [Code](Codes/ExceptionHandling/)*
+
+---
+
+> **Keywords**\
+> *Topics : this, static*\
+> *Link --> [Notes](Notes/Keywords.md) | [Code](Codes/Keywords/)*
 
 ---
 
@@ -129,12 +117,6 @@
 > **Functional Constructs**\
 > *Topics : Functional Interfaces, Lambda Expressions, Method References*\
 > *Link --> [Notes](Notes/FunctionalConstructs.md)*
-
----
-
-> **JDK, JRE, JVM**\
-> *Topics : JDK, JRE, JVM, Class Loader, Garbage Collection, Memory Management*\
-> *Link --> [Notes](Notes/JVM.md)*
 
 ---
 
