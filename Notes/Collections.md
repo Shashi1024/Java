@@ -5,7 +5,7 @@
 - A set of interfaces and classes that implement commonly reusable collection data structures.
 - Prior to Java 2 (JDK 1.2), Java had ad-hoc classes for grouping objects (like `Vector`, `Hashtable`, `Array`). The Collections Framework, introduced in Java 1.2, standardized this approach.
 
-![Collection Framework Hierarchy](../can/collections.jpg "Collection Framework Hierarchy")
+![Collection Framework Hierarchy](../can/collections.jpg "Collection Framework Hierarchy")\
 *Source: freeCodeCamp*
 
 
