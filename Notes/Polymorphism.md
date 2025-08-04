@@ -67,4 +67,4 @@
 
 ### Polymorphism with Interfaces
 - defines common behavior across unrelated classes.
-- for more info take a look at [Interfaces](interface.md)
+- for more info take a look at [Interfaces](Interfaces.md)
