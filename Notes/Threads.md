@@ -6,6 +6,7 @@
 > *Link to Codes --> [Codes](../Codes/Concurrency/ThreadCreation.java)*
 
 - thread is an independent path of execution within a program. 
+- in java threads are of two types, User Threads (or Non-Daemon Threads) and Daemon Threads.
 - we primarily interact with threads using the `java.lang.Thread` class or by implementing the `java.lang.Runnable` interface.
 
   ```
@@ -239,4 +240,65 @@
 
 ### Shared Variables
 - instance/static variables that can be accessed and modified by multiple threads.
-- 
+
+
+
+---
+
+
+### Daemon Threads
+- a low priority thread that runs in the background to perform tasks for other threads.
+- its primary purpose is to serve user threads.
+- JVM does not wait for daemon threads to complete their execution before exiting. (if the only threads remeaining are daemon threads, the JVM will terminate)
+
+- In User Thread is a high-priority thread that performs foreground tasks and the JVM will wait for all user threads to complete their execution before terminating.
+
+- *Characteristics*,
+  - Low priority
+  - Inheritance --> a new thread inherits its daemon status from the thread creates it. (if a daemon thread creates a new thread, it will be a daemon thread by default) (if a user thread creates a thread, it will be a user thread by default)
+
+- a thread's daemon status can be set using `setDaemon(boolean on)` method of the `Thread` class. this method must be called before the thread is started, else it will throw `IllegalThreadStateException`
+
+- Ex. JVM itself, logging, spell checkers, ...
+
+- Memory management in daemon threads is very important, as these threads can be terminated abruptly, we have to make sure it does not hold any critical resources that require explicit cleanup or they must be implemented with some robust shutdown hooks or `try-finally`
+
+
+---
+
+### Fork/Join Pool
+- Fork/Join framework introduced in Java 7
+
+- **Fork/Join Framework**
+  - a framework for parallelizing tasks that can be broken down into smaller subtasks(forking) and whose results can be combined(joinin). (divide and conquer algorithms)
+
+- `ForkJoinPool` --> an implementation of `ExecutorService` interface that manages worker threads and provides support for `ForkJoinTask`s. it is oprimized for work-stealing, and helps keep all processor cores busy.
+
+- *Principles*
+  - **Fork** --> a task splits itself into smaller subtasks and submits them to the `ForkJoinPool`.
+  - **Join** --> a task waits for the results of its subtasks and then combines them to produce its own result.
+  - **Work-Stealing** --> `ForkJoinPool` employs work-stealing algorithm. when a worker thread finishes its own tasks, it looks for tasks in the queues of other busy worker threads and steals them maximising CPU Utilization.
+
+- *Components*
+  - `ForkJoinPool` --> thread pool where `ForkJoinTask`s are executed. typically creates as many worker threads as there are available processor cores.
+  - `ForkJoinTask` --> an abstract class representing a task that can be executed in a `ForkJoinPool`, it has two main concrete subclasses,
+    - `RecursiveAction` --> a `ForkJoinTask` that does not return a result (like a `Runnable`)
+    - `RecursiveTask<V>` --> a `ForkJoinTask` that returns a result of type `V` (like a `Callable`)
+
+
+- *Working*
+  - **Task Submission** --> submitting a task using methods like `execute()`, `submit()`, `invoke()`
+  - **Worker Threads** --> `ForkJoinPool` maintains a set of worker threads, usually one per CPU core, each thread has its own double ended queue of tasks
+  - **Forking** --> when a `ForkJoinPool` decides to split itself, if `fork()`s new subtasks. these subtasks are typically pushed onto the head of the current worker thread's dequeue
+  - **Joining** --> when a task needs the result of a subtask, it calls `join()` method on that subtask.
+    - if the subtask is already completed, its result is returned immediately
+    - if the subtask is not yet completed, the current thread might try to execute other tasks from its own deque (or even steal tasks from other threads) while waiting, to avoid blocking
+  - **Work-Stealing** --> if a worker thread's own deque is empty, it attempts to steal tasks from the tail of other busy worker threads' deques.
+  - **Result Combination** --> once all subtasks are completed and joined, their results are combined to produce the final result of the original task
+
+- *Memory*
+  - each `ForkJoinTask` object (and its state) consumes heap memory, each worker thread has its own stack, deques and both consume memory.
+  - work-stealing mechanism itself also creates some overhead for managing deques and synchronization
+  - no intermediate collections are used, these are entirely executed in a pipeline fashion just like the streams.
+
+- parallel streams (like `collection.parallelStream()`) internally use the `ForkJoinPool.commonPool()`.
