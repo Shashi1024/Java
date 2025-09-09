@@ -155,6 +155,7 @@
   - declared using the `final` keyword
   - all methods in a `final` class are implicitly `final` (cannot be overridden).
   - `java.lang.String` is a `final` class.
+  - private methods can be overloaded but not overridden (both within the class and in subclass)
 
 
 
